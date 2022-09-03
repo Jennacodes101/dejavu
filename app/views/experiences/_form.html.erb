@@ -1,7 +1,10 @@
-<%= form_for(experience) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :address %>
+<%= simple_form_for experience do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :type %>
+  <%= f.input :subtype %>
+  <%= f.input :country %>
+  <%= f.input :city %>
+  <%= f.input :address %>
   <%= f.submit %>
 <% end %>
