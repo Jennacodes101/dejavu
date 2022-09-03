@@ -2,3 +2,12 @@
 
 <h2> <%= @experience.name %> </h2>
 <p> <%= @experience.description %> </p>
+<p> <%= @experience.country %> </p>
+<p> <%= @experience.city %> </p>
+<p> <%= @experience.address %> </p>
+<p> <%= @experience.contact %> </p>
+
+
+<%= link_to 'back', experiences_path %>
+<%= link_to 'edit', edit_experience_path %>
+<%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>

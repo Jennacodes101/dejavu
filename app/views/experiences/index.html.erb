@@ -1,6 +1,11 @@
 <h1>Experiences#index</h1>
+
+<%= link_to 'Create a new Experience', new_experience_path %>
+
 <ul>
   <% @experiences.each do |experience| %>
-    <li><%= experience.name %></li>
-  <% end  %>
+    <li><%= link_to experience.name, experience_path(experience)   %></li>
+    <li><%= experience.country %></li>
+    <li><%= experience.city %></li>
+  <% end %>
 </ul>
