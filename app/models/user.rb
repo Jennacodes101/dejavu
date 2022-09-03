@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :friends, dependent: :destroy
   # belongs_to :friends, dependent: destroy
 
+  has_one_attached :photo
 end
