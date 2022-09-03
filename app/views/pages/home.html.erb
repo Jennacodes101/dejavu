@@ -1,7 +1,11 @@
-<div class="container">
-  <div class="d-grid gap-2 col-4 mx-auto align-items-center justify-content-center">
-    <h1>DejaVu Homepage</h1><br>
-    <%=link_to 'Go to Index', experiences_path, class: "btn btn-gradient" %>
+<div class="banner">
+  <div class="container">
+    <div class="d-grid gap-2 col-4 mx-auto align-items-center justify-content-center">
+      <h1>DejaVu Homepage</h1>
+      <p>Change your life, you never ever have to remember anything anymore, just enter in dejavu and enjoy</p>
+      <%# <img src="dejavu.png" class="img-fluid" alt="Responsive image"> %>
+      <%=link_to 'Go to Index', experiences_path, class: "btn btn-gradient" %>
+    </div>
   </div>
 </div>
 <% if user_signed_in? %>
