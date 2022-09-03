@@ -31,6 +31,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+# Cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.16.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
