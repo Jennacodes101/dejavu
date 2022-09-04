@@ -4,7 +4,7 @@ class CreateExperiences < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :description
       t.string :image
-      t.string :type
+      t.string :exp_type
       t.string :subtype
       t.string :country
       t.string :city
