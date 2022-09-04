@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+# Pundit
+gem 'pundit'
+
 # Cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
