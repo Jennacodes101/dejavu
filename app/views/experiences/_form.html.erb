@@ -1,9 +1,9 @@
 <%= simple_form_for experience do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :type %>
+  <%= f.input :exp_type %>
   <%= f.input :subtype %>
-  <%= f.input :country %>
+  <%= f.input :country, as: :string %>
   <%= f.input :city %>
   <%= f.input :address %>
   <%= f.submit %>

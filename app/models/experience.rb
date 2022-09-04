@@ -4,7 +4,7 @@ class Experience < ApplicationRecord
   validates :name, presence: true
   # validates :description, presence: true
   # validates :image, presence: true
-  validates :type, presence: true
+  validates :exp_type, presence: true
   validates :subtype, presence: true
   validates :country, presence: true
   validates :city, presence:true
