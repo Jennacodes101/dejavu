@@ -7,9 +7,17 @@
 <p> <%= @experience.address %> </p>
 <p> <%= @experience.contact %> </p>
 
+<% @experience.reviews.each do |review| %>
+  <p> <%= @review.rating %> </p>
+  <p> <%= @review.review %> </p>
+  <%= link_to 'delete review', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <hr>
+<% end %>
+
 
 <%= link_to 'back', experiences_path %>
-<% if policy(experience).edit? %>
+<% if policy(@experience).edit? %>
   <%= link_to 'edit', edit_experience_path %>
   <%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
+<%= link_to '+ review', new_experience_review_path(@experience) %>
