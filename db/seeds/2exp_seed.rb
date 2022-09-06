@@ -61,24 +61,37 @@ url_seed= [
 
   ]
 
+  city_seed = [
+    'Madrid', 'Madrid', 'Madrid',
+    'Lisboa', 'Lisboa', 'Lisboa'
+    'Lisboa', 'Lisboa', 'Lisboa'
+  ]
+
+  country_seed = [
+    'Spain', 'Spain', 'Spain',
+    'Portugal', 'Portugal', 'Portugal',
+    'Portugal', 'Portugal', 'Portugal'
+  ]
+
+
 #assure lengths are good
 
-#def lengths_even?
-#  array = [name_seed, description_seed, type_seed, subtype_seed, price_seed,
-#    userid_seed]
-#    array.all? {|arr| arr.size == name_seed.size}
-#end
+def lengths_even?
+  array = [name_seed, description_seed, type_seed, subtype_seed, price_seed,
+    userid_seed]
+    array.all? {|arr| arr.size == name_seed.size}
+end
 
 puts"seeding experiences for each user..."
 
 #checking to see if inputs are all correct
-#lengths_even?
+lengths_even?
 
 name_seed.each_with_index do |name, num|
   exp = Experience.new(name: "#{name}", description: description_seed[num],
     exp_type: type_seed[num], subtype: subtype_seed[num], address: address_seed[num],
     price: price_seed[num], user_id: userid_seed[num], contact: contact_seed[num],
-  url: url_seed[num])
+  url: url_seed[num], city: city_seed[num], country: country_seed[num])
 
   puts "seeding #{exp.name}"
   exp.save!
