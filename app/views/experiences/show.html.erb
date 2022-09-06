@@ -9,7 +9,7 @@
 
 <% @experience.reviews.each do |review| %>
   <p> <%= @review.rating %> </p>
-  <p> <%= @review.review %> </p>
+  <p> <%= @review.content %> </p>
   <%= link_to 'delete review', review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
   <hr>
 <% end %>

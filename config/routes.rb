@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :experiences do
     resources :reviews, only: [:new, :create]
   end
-  resources :reviews, only [:destroy]
+  resources :reviews, only: [:destroy]
 
   # my_experiences- new, update,
   resources :my_experiences, except: [:edit, :new]
