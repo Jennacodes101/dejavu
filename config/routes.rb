@@ -2,14 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  # experiences
+  # experiences with nested reviews and my_experiences
   resources :experiences do
     resources :reviews, only: [:new, :create]
+    resources :my_experiences, only: [:new, :create, :edit]
   end
   resources :reviews, only: [:destroy]
-
-  # my_experiences- new, update,
-  resources :my_experiences, except: [:edit, :new]
 
   # friends
   resources :friends, only: [:create, :delete, :update]

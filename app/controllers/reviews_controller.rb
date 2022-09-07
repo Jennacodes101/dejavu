@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content)
   end
 
-  def find_restaurant
-    @experience = experience.find(params[:experience_id])
+  def find_experience
+    @experience = Experience.find(params[:experience_id])
   end
 end

@@ -21,3 +21,4 @@
   <%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 <%= link_to '+ review', new_experience_review_path(@experience) %>
+<%= link_to '+ wishlist', new_experience_my_experience_path(@experience) %>
