@@ -1,0 +1,15 @@
+<div class="form-search">
+  <%= form_tag experiences_path, method: :get do %>
+    <div class="row mt-4">
+      <div class="col-11">
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find an Experience" %>
+      </div>
+      <div class="col-1">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

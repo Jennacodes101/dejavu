@@ -3,9 +3,16 @@ class ExperiencesController < ApplicationController
   before_action :find_experience, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @experiences = Experience.all (replaced by the one below because of pundit)
-    @experiences = policy_scope(Experience)
-    geomap
+    # Start PgSearch
+    if params[:query].present?
+      @experiences = Experience.global_search(params[:query])
+    else
+      # @experiences = Experience.all (replaced by the one below because of pundit)
+      @experiences = policy_scope(Experience)
+    end
+      geomap
+    # End PgSearch
+
   end
 
   def show; end
