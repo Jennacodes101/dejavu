@@ -5,17 +5,18 @@
 <div>
   <%= render '/shared/search' %>
 </div>
-
-<ul>
-  <% @experiences.each do |experience| %>
-    <li><%= link_to experience.name, experience_path(experience)   %></li>
-    <li><%= experience.country %></li>
-    <li><%= experience.city %></li>
-  <% end %>
-</ul>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container">
+  <div class="row">
+    <%# i want the space that will be with 2/3 to cards and 1/3 to the map %>
+    <div class="col-8"> <%# grid of cards %>
+      <div class="container d-flex align-items-center justify-content-center">
+        <% @experiences.each do |experience|%>
+          <%= render 'shared/card_experience', experience: experience %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4"> <%# map %>
+      <%# <%= render 'map'%>
+    </div>
+  </div>
 </div>
