@@ -9,7 +9,7 @@
 
 
 <%= link_to 'back', experiences_path %>
-<% if policy(experience).edit? %>
+<% if policy(@experience).edit? %>
   <%= link_to 'edit', edit_experience_path %>
   <%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
