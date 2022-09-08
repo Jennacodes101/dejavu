@@ -10,7 +10,7 @@ class ExperiencesController < ApplicationController
       # @experiences = Experience.all (replaced by the one below because of pundit)
       @experiences = policy_scope(Experience)
     end
-      geomap
+      geo_map
     # End PgSearch
 
   end
@@ -58,7 +58,7 @@ class ExperiencesController < ApplicationController
    params.require(:experience).permit(:name, :description, :image, :exp_type, :subtype, :country, :city, :address, :contact, :url, :price)
   end
 
-  def geomap
+  def geo_map
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
