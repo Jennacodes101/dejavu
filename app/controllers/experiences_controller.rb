@@ -2,17 +2,28 @@ class ExperiencesController < ApplicationController
 
   before_action :find_experience, only: [:show, :edit, :update, :destroy]
 
+
   def index
     # Start Geocoding
-    @experiences = Experience.geocoded
+    # @experiences = Experience.all (replaced by the one below because of pundit)
+    @experiences = policy_scope(Experience)
+
+
+    @markers = @experiences.geocoded.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
+        image_url: helpers.asset_url("green_marker.png")
+      }
+    end
+
+
     # Start PgSearch
     if params[:query].present?
       @experiences = Experience.global_search(params[:query])
-    else
-      # @experiences = Experience.all (replaced by the one below because of pundit)
-      @experiences = policy_scope(Experience)
     end
-      geo_map  # Private geocoding
+      # Private geocoding
     # End PgSearch
   end
 
@@ -28,6 +39,8 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     authorize @experience
     if @experience.save
+      raise
+
       redirect_to experience_path(@experience), notice: 'Experience was successfully created.'
     else
       render :new
@@ -60,13 +73,6 @@ class ExperiencesController < ApplicationController
   end
 
   def geo_map
-    @markers = @experiences.geocoded.map do |experience|
-      {
-        lat: experience.latitude,
-        lng: experience.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
-        image_url: helpers.asset_url("green_marker.png")
-      }
-    end
+
   end
 end

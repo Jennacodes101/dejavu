@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from "mapbox-gl"
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+
 
 export default class extends Controller {
   static values = {
@@ -13,23 +14,27 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/satellite-v9", // style
+      // style: "mapbox://styles/mapbox/satellite-v9"
+      style: "mapbox://styles/mapbox/streets-v11", // style
       center: [-9.1350899566626, 38.70956997955441], // starting position [lng, lat]
       zoom: 5 // starting zoom
     })
     this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.#fitMapToMarkers()
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl }))
   }
   #addMarkersToMap() {
+
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+
+
+      // const popup = new mapboxgl.Popup().setHTML(marker.info_window_map)
+      // new mapboxgl.Marker()
+      //   .setLngLat([ marker.lng, marker.lat ])
+      //   .setPopup(popup)
+      //   .addTo(this.map)
 
             // VERY IMPORTANT
             //when we decide we want to create avatars to our experiences
