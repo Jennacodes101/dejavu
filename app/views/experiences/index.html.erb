@@ -3,7 +3,7 @@
 
 <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
 <div>
-  <%= render '/shared/search' %>
+  <%= render 'shared/search' %>
 </div>
 <div class="container">
   <div class="row">
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="col-4"> <%# map %>
-      <%# <%= render 'map'%>
+      <%= render 'shared/map'%>
     </div>
   </div>
 </div>
