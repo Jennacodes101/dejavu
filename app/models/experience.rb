@@ -19,4 +19,14 @@ class Experience < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+  # pgSearch
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :description, :country, :city, :address, :contact, :price ],
+    associated_against: {
+      user: [ :first_name, :last_name, :username, :birthday, :city, :bio, :phone_number ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end

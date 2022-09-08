@@ -1,7 +1,9 @@
 <h1>Experiences#index</h1>
 
 <%= link_to 'Create a new Experience', new_experience_path %>
-
+<div>
+  <%= render '/shared/search' %>
+</div>
 <ul>
   <% @experiences.each do |experience| %>
     <li><%= link_to experience.name, experience_path(experience)   %></li>
