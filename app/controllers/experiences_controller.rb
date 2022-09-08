@@ -3,6 +3,8 @@ class ExperiencesController < ApplicationController
   before_action :find_experience, only: [:show, :edit, :update, :destroy]
 
   def index
+    # Start Geocoding
+    @experiences = Experience.geocoded
     # Start PgSearch
     if params[:query].present?
       @experiences = Experience.global_search(params[:query])
@@ -10,9 +12,8 @@ class ExperiencesController < ApplicationController
       # @experiences = Experience.all (replaced by the one below because of pundit)
       @experiences = policy_scope(Experience)
     end
-      geomap
+      geo_map  # Private geocoding
     # End PgSearch
-
   end
 
   def show; end
@@ -58,7 +59,7 @@ class ExperiencesController < ApplicationController
    params.require(:experience).permit(:name, :description, :image, :exp_type, :subtype, :country, :city, :address, :contact, :url, :price)
   end
 
-  def geomap
+  def geo_map
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
