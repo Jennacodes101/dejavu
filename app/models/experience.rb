@@ -16,7 +16,7 @@ class Experience < ApplicationRecord
   #--DATABASE--
   belongs_to :user
   has_many :my_experiences
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, through: :my_experiences
   has_one_attached :photo
 
 end

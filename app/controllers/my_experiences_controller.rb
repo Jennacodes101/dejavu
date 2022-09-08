@@ -2,11 +2,11 @@ class MyExperiencesController < ApplicationController
   before_action :find_experience, except: [:destroy]
 
   def new
-    @my_experience = My_experience.new
+    @my_experience = MyExperience.new
   end
 
   def create
-    @my_experience = My_experience.new(my_experience_params)
+    @my_experience = MyExperience.new(my_experience_params)
     @my_experience.experience = @experience
     if @my_experience.save
       redirect_to experience_path(@experience), notice: 'My_Experience was successfully created.'
@@ -16,7 +16,7 @@ class MyExperiencesController < ApplicationController
   end
 
   def destroy
-    @my_experience = My_experience.find(params[:id])
+    @my_experience = MyExperience.find(params[:id])
     @my_experience.destroy
     redirect_to experience_path(@my_experience.experience)
   end

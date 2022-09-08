@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :find_experience, except: [:destroy]
+  before_action :find_my_experience, except: [:destroy]
 
   def new
     @review = Review.new
@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.experience = @experience
+    @review.my_experience = @my_experience
     if @review.save
       redirect_to experience_path(@experience), notice: 'Experience was successfully created.'
     else
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :content)
   end
 
-  def find_experience
-    @experience = Experience.find(params[:experience_id])
+  def find_my_experience
+    @experience = MyExperience.find(params[:my_experience_id])
   end
 end

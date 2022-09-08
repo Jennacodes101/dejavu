@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   # experiences with nested reviews and my_experiences
   resources :experiences do
-    resources :reviews, only: [:new, :create]
-    resources :my_experiences, only: [:new, :create, :edit]
+    resources :my_experiences, only: [:new, :create]
   end
+
+  resources :my_experiences, only: [:edit, :update] do
+    resources :reviews, only: [:new, :create]
+  end
+
   resources :reviews, only: [:destroy]
 
   # friends
