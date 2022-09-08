@@ -34,6 +34,10 @@ gem 'devise'
 # Pundit
 gem 'pundit'
 
+# Geocoing
+gem "geocoder"
+
+
 # Cloudinary
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
