@@ -1,3 +1,4 @@
+
 <%= simple_form_for experience do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
@@ -5,6 +6,12 @@
   <%= f.input :subtype %>
   <%= f.input :country, as: :string %>
   <%= f.input :city %>
-  <%= f.input :address %>
-  <%= f.submit class: 'btn btn-primary' %>
+
+
+  <%= f.input :address,
+              input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+  <%= f.button :submit, class: "btn btn-primary rounded" %>
+
+
 <% end %>

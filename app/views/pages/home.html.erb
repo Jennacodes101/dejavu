@@ -4,11 +4,7 @@
       <h1>DejaVu Homepage</h1>
       <p>Change your life, you never ever have to remember anything anymore, just enter in dejavu and enjoy</p>
       <%# <img src="dejavu.png" class="img-fluid" alt="Responsive image"> %>
-      <%=link_to 'Go to Index', experiences_path, class: "btn btn-gradient" %>
+      <%=link_to 'Go to Index', experiences_path, class: "btn btn-gradient mx-auto" %>
     </div>
   </div>
 </div>
-
-<% if user_signed_in? %>
-   <%= current_user.email %>
-<% end %>
