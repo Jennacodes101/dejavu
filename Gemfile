@@ -34,8 +34,14 @@ gem 'devise'
 # Pundit
 gem 'pundit'
 
+
+# Geocoing
+gem "geocoder"
+
+
 #pg_search gem
 gem 'pg_search', '~> 2.3.0'
+
 
 # Cloudinary
 gem 'dotenv-rails', groups: [:development, :test]

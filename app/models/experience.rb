@@ -19,6 +19,11 @@ class Experience < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_one_attached :photo
 
+
+  #--Geocoding--
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   # pgSearch
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -29,4 +34,5 @@ class Experience < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
 end
