@@ -1,6 +1,10 @@
 <h1>Experiences#index</h1>
 
+
 <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
+<div>
+  <%= render '/shared/search' %>
+</div>
 
 <ul>
   <% @experiences.each do |experience| %>
@@ -9,3 +13,9 @@
     <li><%= experience.city %></li>
   <% end %>
 </ul>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
