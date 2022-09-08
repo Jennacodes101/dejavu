@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   # experiences
   resources :experiences do
-    resources :reviews, only: [:create, :delete]
+    resources :reviews, only: [:new, :create]
   end
+  resources :reviews, only: [:destroy]
 
   # my_experiences- new, update,
-
   resources :my_experiences, except: [:edit, :new]
 
   # friends
