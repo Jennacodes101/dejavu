@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :experiences, dependent: :destroy
   has_many :my_experiences, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, through: :my_experiences, dependent: :destroy
   has_many :friends, dependent: :destroy
   # belongs_to :friends, dependent: destroy
 
