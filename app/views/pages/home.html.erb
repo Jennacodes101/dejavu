@@ -1,10 +1,13 @@
+<%= content_for(:navbar_class, "navbar-home") %>
+
 <div class="banner">
-  <div class="container">
-    <div class="d-grid gap-2 col-4 mx-auto align-items-center justify-content-center">
-      <h1>DejaVu Homepage</h1>
-      <p>Change your life, you never ever have to remember anything anymore, just enter in dejavu and enjoy</p>
-      <%# <img src="dejavu.png" class="img-fluid" alt="Responsive image"> %>
-      <%=link_to 'Go to Index', experiences_path, class: "btn btn-gradient mx-auto" %>
+  <div class="home-video-wrapper justify-content-center align-items-center">
+    <%= video_tag "home2.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+    <div class="xxx">
+      <h1 class="home">DejaVu</h1>
+      <p class="home" >Change your life, you never ever have to remember anything anymore, just enter in dejavu and enjoy</p>
+      <%=link_to 'Experiences Feed', experiences_path, class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 </div>
+<%= content_for(:footer_class, "footer-home") %>

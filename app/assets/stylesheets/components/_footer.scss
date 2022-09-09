@@ -1,5 +1,5 @@
 .footer {
-  background: #b3e5e9;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,6 +21,23 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.footer .fa-heart {
-  color: #D23333;
+.footer-copyright {
+  color: black;
+}
+
+//for second homepage
+.footer-home {
+  //position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+
+}
+.nav-link {
+  color: white;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color:coral;
 }

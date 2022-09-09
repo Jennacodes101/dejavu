@@ -1,23 +1,56 @@
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  // background-image: url('/assets/dejavu.png');
-  background: url(asset_path('dejavu.png')) no-repeat center center;
+// .banner {
+//   height: 100vh;
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   //background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("dejavu.png");
+//   background-size: cover;
+//   background-position: center;
+//   h1 {
+//     color: white;
+//     font-weight: bold;
+//     font-size: 65px;
+//   }
+//   p {
+//     color: white;
+//     opacity: .8;
+//     font-size: 25px;
+//     font-weight: lighter;
+//     margin-bottom: 30px;
+//   }
+//   .btn {
+//     padding: 15px 50px;
+//   }
+// }
+
+.home_video {
+  width: 99vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
-  opacity: 1;
+ .home-video-wrapper {
+  height: 100vh;
+  display: flex;
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.home  {
+  color:white;
+  h1 {
+    font-size: 200px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 50px;
+    font-weight: lighter;
+  }
+}
+
+.xxx {
+  text-align: center;
 }
