@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2022_09_08_150655) do
     t.string "name"
     t.text "description"
     t.string "exp_type"
-    t.string "subtype"
     t.string "country"
     t.string "city"
     t.string "address"
@@ -85,12 +84,10 @@ ActiveRecord::Schema.define(version: 2022_09_08_150655) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "experience_id", null: false
+    t.bigint "my_experience_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["experience_id"], name: "index_reviews_on_experience_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["my_experience_id"], name: "index_reviews_on_my_experience_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -119,6 +116,5 @@ ActiveRecord::Schema.define(version: 2022_09_08_150655) do
   add_foreign_key "friends", "users"
   add_foreign_key "my_experiences", "experiences"
   add_foreign_key "my_experiences", "users"
-  add_foreign_key "reviews", "experiences"
-  add_foreign_key "reviews", "users"
+  add_foreign_key "reviews", "my_experiences"
 end
