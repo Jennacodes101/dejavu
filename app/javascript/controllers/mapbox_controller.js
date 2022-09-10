@@ -20,7 +20,7 @@ export default class extends Controller {
       zoom: 5 // starting zoom
     })
     this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+   // this.#fitMapToMarkers()
 
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     //   mapboxgl: mapboxgl }))
@@ -30,11 +30,11 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
 
 
-      // const popup = new mapboxgl.Popup().setHTML(marker.info_window_map)
-      // new mapboxgl.Marker()
-      //   .setLngLat([ marker.lng, marker.lat ])
-      //   .setPopup(popup)
-      //   .addTo(this.map)
+       const popup = new mapboxgl.Popup().setHTML(marker.info_window_map)
+       new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
 
             // VERY IMPORTANT
             //when we decide we want to create avatars to our experiences

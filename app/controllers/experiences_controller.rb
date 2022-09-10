@@ -6,11 +6,14 @@ class ExperiencesController < ApplicationController
   def index
     # Start Geocoding
 
+    @experiences = policy_scope(Experience)
+
     # Start PgSearch
     if params[:query].present?
       @experiences = Experience.global_search(params[:query])
     end
-      # Private geocoding
+    geo_map
+
     # End PgSearch
   end
 
@@ -26,8 +29,6 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     authorize @experience
     if @experience.save
-      raise
-
       redirect_to experience_path(@experience), notice: 'Experience was successfully created.'
     else
       render :new
