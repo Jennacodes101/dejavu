@@ -1,40 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow new-form">
-        <%= simple_form_for(experience) do |f| %>
-          <div class="mb-3">
-            <%= f.label :name %>
-            <%= f.text_field :name, placeholder: 'Name of the Experience' %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :description %>
-            <%= f.text_area :description, placeholder: 'Describe your Experience...' %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :exp_type %>
-            <%= f.text_area :exp_type, placeholder: 'Experience Type...' %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :subtype %>
-            <%= f.text_area :subtype, placeholder: 'Sub Type...' %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :country %>
-            <%= f.text_area :country, placeholder: 'Country...' %>
-          </div>
-          <div class="mb-3">
-            <%= f.label :city %>
-            <%= f.text_area :city, placeholder: 'city...' %>
-          </div>
-          <div class="mb-3">
-            <%= f.input :address,
-                        input_html: { data: { geocoder_target: "address" }, class: "d-none" },
-                        wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-            <%= f.button :submit, class: "btn btn-success" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+
+<%= simple_form_for experience do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :exp_type, collection: ['place', 'experience'], prompt: 'Choose a recommendation type', class: 'expSelect', default: 'place' %>
+  <%= f.input :subtype, collection: ['museum','food', 'landmark', 'nightlife', 'nature'], prompt: 'choose an experience sub type', disabled: false, id: 'subPlaces'%>
+  <!-- <%= f.input :subtype, collection: ['classes', 'outdoor activity', 'service', 'excursion'], prompt: 'choose a places sub type', disabled: true, id: 'subExp' %> -->
+  <%= f.input :country, as: :string %>
+  <%= f.input :city %>
+
+
+  <%= f.input :address,
+              input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+  <%= f.button :submit, class: "btn btn-primary rounded" %>
+
+
+<% end %>
+
+<script>
+  const expType = document.querySelector(".expSelect");
+  const subPlaces = document.getElementById("subPlaces");
+  const subExp = document.getElementById("subExp");
+  console.log('something');
+
+  expType.addEventListener("change", (event) => {
+    console.log(expType);
+  })
+
+
+
+</script>
