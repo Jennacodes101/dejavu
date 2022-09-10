@@ -8,7 +8,7 @@ class Experience < ApplicationRecord
   validates :subtype, presence: true
   validates :country, presence: true
   validates :city, presence:true
-  # validates :address, presence:true
+  validates :address, presence:true
   # validates :contact, presence: true
   # validates :url, presence: true
   # validates :price, presence: true
