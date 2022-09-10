@@ -11,7 +11,7 @@
 <%# if user hasnt done an experience %>
   <%= link_to 'Add to wishlist', new_experience_my_experience_path(@experience), class:"btn btn-success" %>
 <%# else %>
-  <%= link_to 'Add a review', new_my_experience_review_path(@experience), class: "btn btn-success" %>
+  <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
   <%# link_to 'Mark it as sone', new_my_experience_review_path(@experience), class: "btn btn-success" %>
 <%# end %>
 

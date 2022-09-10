@@ -17,7 +17,9 @@ class ExperiencesController < ApplicationController
     # End PgSearch
   end
 
-  def show; end
+  def show
+    @my_experience = MyExperience.find_by(experience_id: @experience.id, user_id: current_user.id)
+  end
 
   def new
     @experience = Experience.new
