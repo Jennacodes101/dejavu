@@ -20,6 +20,7 @@ class ExperiencesController < ApplicationController
 
   def new
     @experience = Experience.new
+    @exp_types = ['museum','food', 'landmark', 'nightlife', 'nature','classes', 'outdoor activity', 'service', 'excursion']
     authorize @experience
   end
 
@@ -56,7 +57,7 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-   params.require(:experience).permit(:name, :description, :image, :exp_type, :subtype, :country, :city, :address, :contact, :url, :price)
+    params.require(:experience).permit(:name, :description, :image, :exp_type, :country, :city, :address, :contact, :url, :price)
   end
 
   def geo_map
