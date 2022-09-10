@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
 
-  before_action :find_experience, only: [:show, :edit, :update, :destroy]
+  before_action :find_experience, only: [:show, :edit, :update, :destroy, :create_review]
 
   def index
     # Start Geocoding
