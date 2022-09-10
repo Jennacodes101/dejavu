@@ -5,7 +5,7 @@ class ExperiencesController < ApplicationController
 
   def index
     # Start Geocoding
-
+    @experiences = Experience.geocoded
     @experiences = policy_scope(Experience)
 
     # Start PgSearch
@@ -61,7 +61,7 @@ class ExperiencesController < ApplicationController
   end
 
   def geo_map
-    @experiences = Experience.geocoded
+
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,

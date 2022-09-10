@@ -20,17 +20,17 @@ export default class extends Controller {
       zoom: 5 // starting zoom
     })
     this.#addMarkersToMap()
-   // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
 
-    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl }))
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+       mapboxgl: mapboxgl }))
   }
   #addMarkersToMap() {
 
     this.markersValue.forEach((marker) => {
 
 
-       const popup = new mapboxgl.Popup().setHTML(marker.info_window_map)
+       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
        new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
