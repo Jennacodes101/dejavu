@@ -5,22 +5,6 @@ class ExperiencesController < ApplicationController
 
   def index
     # Start Geocoding
-<<<<<<< HEAD
-    # @experiences = Experience.all (replaced by the one below because of pundit)
-    @experiences = policy_scope(Experience)
-
-
-    @markers = @experiences.geocoded.map do |experience|
-      {
-        lat: experience.latitude,
-        lng: experience.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
-        image_url: helpers.asset_url("green_marker.png")
-      }
-    end
-
-=======
->>>>>>> master
 
     # Start PgSearch
     if params[:query].present?
