@@ -4,7 +4,7 @@ class ExperiencesController < ApplicationController
 
   def index
     # Start Geocoding
-    @experiences = Experience.geocoded
+
     # Start PgSearch
     if params[:query].present?
       @experiences = Experience.global_search(params[:query])
@@ -60,11 +60,12 @@ class ExperiencesController < ApplicationController
   end
 
   def geo_map
+    @experiences = Experience.geocoded
     @markers = @experiences.geocoded.map do |experience|
       {
         lat: experience.latitude,
         lng: experience.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
+        info_window: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
         image_url: helpers.asset_url("green_marker.png")
       }
     end
