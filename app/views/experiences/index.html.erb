@@ -13,7 +13,7 @@
     </div>
     <div class="col-7"> <%# grid of cards %>
       <div class="cards">
-        <div class="container d-flex align-items-center justify-content-center">
+        <div class="card">
           <% @experiences.each do |experience|%>
             <%= render 'shared/card_experience', experience: experience %>
           <% end %>
