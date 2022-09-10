@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   # my_experiences with nested reviews
-  resources :my_experiences, only: [:edit, :update] do
+  resources :my_experiences, only: [:index, :edit, :update] do
     resources :reviews, only: [:new, :create]
   end
 
