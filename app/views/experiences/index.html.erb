@@ -3,18 +3,27 @@
 <div>
   <%= render 'shared/search' %>
 </div>
-<div class="container">
-  <div class="row">
+<div class="main-index ">
+  <div class="row ">
     <%# i want the space that will be with 2/3 to cards and 1/3 to the map %>
-    <div class="col-8"> <%# grid of cards %>
-      <div class="container d-flex align-items-center justify-content-center">
-        <% @experiences.each do |experience|%>
-          <%= render 'shared/card_experience', experience: experience %>
-        <% end %>
+    <div class="col-2">
+      <div class="whislist">
+        <strong><h3>whislist</h3></strong>
       </div>
     </div>
-    <div class="col-4"> <%# map %>
-      <%= render 'shared/map' %>
+    <div class="col-7"> <%# grid of cards %>
+      <div class="cards">
+        <div class="container d-flex align-items-center justify-content-center">
+          <% @experiences.each do |experience|%>
+            <%= render 'shared/card_experience', experience: experience %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"> <%# map %>
+      <div class="map">
+        <%= render 'shared/map' %>
+      </div>
     </div>
   </div>
 </div>
