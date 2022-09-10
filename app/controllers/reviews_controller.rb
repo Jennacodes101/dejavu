@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.my_experience_id = params["my_experience_id"]
     authorize @review
     if @review.save
-      redirect_to experience_path(@experience), notice: 'Review was successfully created.'
+      redirect_to experience_path(@my_experience.experience_id), notice: 'Review was successfully created.'
     else
       render :new
     end
@@ -32,6 +32,7 @@ class ReviewsController < ApplicationController
   end
 
   def find_my_experience
-    @experience = MyExperience.find(params[:my_experience_id])
+    # naming error, name it
+    @my_experience = MyExperience.find(params[:my_experience_id])
   end
 end
