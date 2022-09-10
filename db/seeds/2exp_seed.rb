@@ -25,10 +25,7 @@ description_seed = [
   the water. Nigel and David were a great laugh and made sure the drink and food was flowing � …'
 ]
 
-type_seed = ['place','place','experience','place','place', 'experience',
-  'place','place','experience']
-
-subtype_seed = ['food','service','market','food','museum', 'activity',
+type_seed = ['food','service','market','food','museum', 'activity',
   'cafe', 'park','excursion']
 
 address_seed = [

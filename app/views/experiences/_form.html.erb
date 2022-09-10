@@ -2,9 +2,7 @@
 <%= simple_form_for experience do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :exp_type, collection: ['place', 'experience'], prompt: 'Choose a recommendation type', class: 'expSelect', default: 'place' %>
-  <%= f.input :subtype, collection: ['museum','food', 'landmark', 'nightlife', 'nature'], prompt: 'choose an experience sub type', disabled: false, id: 'subPlaces'%>
-  <!-- <%= f.input :subtype, collection: ['classes', 'outdoor activity', 'service', 'excursion'], prompt: 'choose a places sub type', disabled: true, id: 'subExp' %> -->
+  <%= f.input :exp_type, collection: @exp_types, prompt: 'Choose an experience type' %>
   <%= f.input :country, as: :string %>
   <%= f.input :city %>
 
@@ -16,17 +14,3 @@
 
 
 <% end %>
-
-<script>
-  const expType = document.querySelector(".expSelect");
-  const subPlaces = document.getElementById("subPlaces");
-  const subExp = document.getElementById("subExp");
-  console.log('something');
-
-  expType.addEventListener("change", (event) => {
-    console.log(expType);
-  })
-
-
-
-</script>
