@@ -7,13 +7,13 @@
 <p> <%= @experience.address %> </p>
 <p> <%= @experience.contact %> </p>
 
-
-<%# if user hasnt done an experience %>
+<% if @my_experience.user_id != current_user.id  %>
   <%= link_to 'Add to wishlist', new_experience_my_experience_path(@experience), class:"btn btn-success" %>
-<%# else %>
-  <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
-  <%# link_to 'Mark it as sone', new_my_experience_review_path(@experience), class: "btn btn-success" %>
-<%# end %>
+  <% if @my_experience.user!= nil %>
+    <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
+    <%# link_to 'Mark it as done', new_my_experience_review_path(@experience), class: "btn btn-success" %>
+  <% end %>
+<% end %>
 
 <% @experience.reviews.each do |review| %>
   <p> <%= review.rating %> </p>
