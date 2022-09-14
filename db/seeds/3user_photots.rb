@@ -2,7 +2,7 @@
 # through cloundiary/ acitve record
 puts 'seeding user photos....'
 jenna = User.find(1)
-jenna.photo.attach(io: File.open('app/assets/images/dejavu_user_photos/jenna.jpg'), filename: 'Jenna.jpg')
+jenna.photo.attach(io: File.open('app/assets/images/dejavu_user_photos/Jenna.jpg'), filename: 'Jenna.jpg')
 jenna.save!
 puts 'seeding photo for user jenna complete✅'
 joaop = User.find(2)
