@@ -1,27 +1,34 @@
-<h1>Experiences#show</h1>
+<div class="container d-flex justify-content-evenly">
+  <div class="info">
+    <h1>Experiences#show</h1>
 
-<h2> <%= @experience.name %> </h2>
-<p> <%= @experience.description %> </p>
-<p> <%= @experience.country %> </p>
-<p> <%= @experience.city %> </p>
-<p> <%= @experience.address %> </p>
-<p> <%= @experience.contact %> </p>
+    <h2> <%= @experience.name %> </h2>
+    <p> <%= @experience.description %> </p>
+    <p> <%= @experience.country %> </p>
+    <p> <%= @experience.city %> </p>
+    <p> <%= @experience.address %> </p>
+    <p> <%= @experience.contact %> </p>
 
-<% if @my_experience.user_id != current_user.id  %>
-  <%= link_to 'Add to wishlist', new_experience_my_experience_path(@experience), class:"btn btn-success" %>
-  <% if @my_experience.user!= nil %>
-    <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
-    <%# link_to 'Mark it as done', new_my_experience_review_path(@experience), class: "btn btn-success" %>
-  <% end %>
-<% end %>
+    <% if @my_experience.user_id != current_user.id  %>
+      <%= link_to 'Add to wishlist', new_experience_my_experience_path(@experience), class:"btn btn-success" %>
+      <% if @my_experience.user!= nil %>
+        <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
+        <%# link_to 'Mark it as done', new_my_experience_review_path(@experience), class: "btn btn-success" %>
+      <% end %>
+    <% end %>
 
-<% @experience.reviews.each do |review| %>
-  <p> <%= review.rating %> </p>
-  <p> <%= review.content %> </p>
-  <hr>
-<% end %>
-
-
+    <% @experience.reviews.each do |review| %>
+      <p> <%= review.rating %> </p>
+      <p> <%= review.content %> </p>
+      <hr>
+    <% end %>
+  </div>
+  <div class="col-3"> <%# map %>
+      <div class="map">
+        <%= render 'shared/map' %>
+      </div>
+    </div>
+</div>
 <%# <%= link_to 'back', experiences_path %>
 <%# <% if policy(@experience).edit? %>
   <%# <%= link_to 'edit', edit_experience_path %>
