@@ -1,0 +1,14 @@
+<div class="pt-3 pb-2 container content border-sunk">
+  <div class="d-flex">
+    <h2 class="bg-exp"> My wishlist </h2>
+  </div>
+  <div class="cards">
+  <% @user_my_experiences.each do |my_exp| %>
+    <%= link_to experience_path(my_exp.experience_id), class: "text-decoration-none" do %>
+    <div class="wishlist-card" style="background: #2c2c2c">
+      <%= my_exp.experience.name %>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
