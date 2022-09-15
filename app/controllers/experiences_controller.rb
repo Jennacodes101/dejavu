@@ -65,7 +65,7 @@ class ExperiencesController < ApplicationController
   end
 
   def experience_params
-    params.require(:experience).permit(:name, :description, :image, :exp_type, :country, :city, :address, :contact, :url, :price)
+    params.require(:experience).permit(:name, :description, :image, :exp_type, :country, :city, :address, :contact, :url, :price, :photo)
   end
 
   def geo_map
