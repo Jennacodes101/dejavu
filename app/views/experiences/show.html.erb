@@ -1,15 +1,18 @@
 <div class="container d-flex justify-content-evenly">
-  <div class="info">
-    <h1>Experiences#show</h1>
-
-    <h2> <%= @experience.name %> </h2>
-    <p> <%= @experience.description %> </p>
+  <div class=" p-3 info info-border">
+    <div class="pb-5 text-center">
+      <h2> <%= @experience.name %> </h2>
+      <%= cl_image_tag @experience.photo.key, crop: :fill, width: 300, height: 300, quality: 70, radius: 20, :format => :png%>
+    </div>
+    <div class=" d-flex descript">
+      <p> <%= @experience.description %> </p>
+    </div>
     <p> <%= @experience.country %> </p>
     <p> <%= @experience.city %> </p>
     <p> <%= @experience.address %> </p>
     <p> <%= @experience.contact %> </p>
 
-    <% if @my_experience.user_id != current_user.id  %>
+    <% if @experience.user_id != current_user.id  %>
       <%= link_to 'Add to wishlist', new_experience_my_experience_path(@experience), class:"btn btn-success" %>
       <% if @my_experience.user!= nil %>
         <%= link_to 'Add a review', new_my_experience_review_path(@my_experience), class: "btn btn-success" %>
@@ -17,7 +20,7 @@
       <% end %>
     <% end %>
 
-    <% @experience.reviews.each do |review| %>
+    <% @experience.reviews.each do |review|x %>
       <p> <%= review.rating %> </p>
       <p> <%= review.content %> </p>
       <hr>
