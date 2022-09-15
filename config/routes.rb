@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :friends, only: [:create, :delete, :update]
 
   # custom routes
-  get 'profile', to: 'pages#profile'
+  get 'profile/:id', to: 'pages#profile', as: 'profile'
+
   get 'feed', to: 'pages#feed'
 
 
