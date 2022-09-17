@@ -5,7 +5,14 @@ class MyExperiencesController < ApplicationController
     @my_experiences = policy_scope(MyExperience)
   end
 
-  def show; end
+  def show
+    # @my_experience = MyExperience.find_by(experience_id: @experience.id, user_id: current_user.id)
+    #   if @my_experience == nil
+    #     @my_experience = MyExperience.new
+    #   else
+    #    @review = Review.find_by(my_experience_id: @my_experience.id)
+    #   end
+  end
 
   def new
     @my_experience = MyExperience.new

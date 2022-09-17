@@ -10,12 +10,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "My feed", "#", class: "nav-link bordered" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Explore",experiences_path, class: "nav-link bordered" %>
-            </li>
             <li class="nav-item dropdown active">
               <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                 <% if current_user.photo.attached? %>
@@ -26,7 +20,8 @@
               </div>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
-                <%= link_to "Explore", "#", class: "dropdown-item" %>
+                <%= link_to "Explore", experiences_path, class: "dropdown-item" %>
+                <%# <%= link_to "My Feed", feed_path(current_user.id), class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "dropdown-item" %>
               </div>
             </li>
