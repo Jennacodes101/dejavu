@@ -1,0 +1,11 @@
+<div class="spacial-search">
+  <%= form_tag experiences_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        name: "search",
+        placeholder: "Find an Experience" %>
+      <button type="submit" class="btn btn-search">
+        <i class="fa fa-search"></i>
+      </button>
+  <% end %>
+</div>

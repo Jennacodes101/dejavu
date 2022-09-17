@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def feed
+    @experiences=Experience.where(user_id: current_user.id)
   end
 
   def profile
