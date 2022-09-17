@@ -1,6 +1,6 @@
 require "test_helper"
 
-class FriendTest < ActiveSupport::TestCase
+class InvitationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
