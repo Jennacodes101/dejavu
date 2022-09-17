@@ -85,3 +85,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'net-smtp'
 gem 'net-pop'
 gem 'net-imap'
+
+#typed js
+gem 'typedjs-rails', '~> 1.0', '>= 1.0.3'

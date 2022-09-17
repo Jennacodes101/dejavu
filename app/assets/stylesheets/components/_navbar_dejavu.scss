@@ -1,0 +1,33 @@
+// Main Class
+.navbar-title {
+  width: 432px;
+  height: 48px;
+  justify-content: center;
+}
+
+.navbar {
+  height: 80px;
+  border-bottom-style: solid;
+  border-width: 1px;
+}
+
+.navbar-collapse {
+  width: 432px;
+  height: 48px;
+  justify-content: right;
+}
+
+.navbar-logo {
+  height: 48px;
+  display: flex;
+  justify-content: left;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 25px;
+}
+
+.nav-item{
+  align-self: center;
+  margin: 2px;
+}
