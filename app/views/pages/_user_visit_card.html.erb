@@ -1,0 +1,48 @@
+<div class="text-center vstcard">
+  <div>
+    <div class="pt-3 pb-2">
+      <div class="vstuser-photo">
+        <%= cl_image_tag @profile_user.photo.key,
+          height: 75, width: 75, crop: :fill, quality: 100,
+          radius: :max, format: :png%>
+      </div>
+      <h3 class="py-2"> <strong> <%= @profile_user.first_name %> </strong> </h3>
+      <h5 class="pb-2"> <%= @profile_user.username %> </h5>
+      <div class="invitebtn">
+        <!--if user does not have a pending request or a accepted request -->
+        <% if !Invitation.reacted?(current_user.id, @profile_user.id) %>
+            <%= link_to 'Add Friend',
+              invitations_path(ids: {id1: current_user.id, id2: @profile_user.id}),
+              class: "btn btn-primary", method: :post
+            %>
+          <!-- if user friendship is confirmed -->
+          <% elsif Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
+            <%= link_to 'Friends✔', "#", class: "btn btn-success" %>
+          <!-- User friendship is pending -->
+          <% else %>
+            <% pending_invite = Invitation.find_invitation(current_user.id, @profile_user.id) %>
+            <% if pending_invite.id == current_user.id %>
+              <%= link_to "Accept Friend Request",
+                invitation_path(ids: {id1: current_user.id, id2: @profile_user.id}),
+                class: "btn btn-success"%>
+            <% else %>
+              <%= link_to 'pending request', "#", class: "btn btn-secondary disabled" %>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="py-3">
+        <% @profile_user.bio %>
+    </div>
+  </div>
+  <div class="vstr-card-footer">
+    <% if Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
+      <%= link_to 'Remove as friend', invitation_path(ids: {id1: current_user.id,
+        id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn btn-danger"%>
+    <% elsif Invitation.pending_record?(current_user.id, @profile_user.id) %>
+      <%= link_to 'Cancel Friend Request', invitation_path(ids: {id1: current_user.id,
+        id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn btn-danger"%>
+    <% end %>
+  </div>
+</div>

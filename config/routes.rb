@@ -14,14 +14,12 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
 
-  # friends
-  resources :friends, only: [:create, :delete, :update]
+  # invitations(friends)
+  resources :invitations, only: [:create, :destroy, :update]
 
   # custom routes
   get 'profile/:id', to: 'pages#profile', as: 'profile'
 
   get 'feed', to: 'pages#feed'
-
-
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

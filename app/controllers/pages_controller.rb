@@ -5,15 +5,18 @@ class PagesController < ApplicationController
   end
 
   def feed
+    @experiences=Experience.where(user_id: current_user.id)
   end
 
   def profile
     # set user access
-    if current_user.id == params[:id]
+    if current_user.id == params[:id].to_i
       @access = 'owner'
+      @friend_invites = current_user.pending_invitations
     else
       @access = 'visitor'
-      @profile_user = User.where(id: params[:id]).select(:name, :username, :city)
+      @profile_user = User.find_by(id: params[:id])
+      @profie_user_friends = @profile_user.friends
     end
 
     # retrieve array of user experiences
@@ -24,8 +27,6 @@ class PagesController < ApplicationController
     # Active record an array of done user my_experiences
     @user_done_experiences = MyExperience.where(user_id: params[:id],
                               done: true)
-
-    # authorization
 
   end
 
