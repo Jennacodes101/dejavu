@@ -1,13 +1,18 @@
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<div class="banner">
-  <div class="home-video-wrapper justify-content-center align-items-center">
-    <%= video_tag "home2.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
-    <div class="xxx">
-      <h1 class="home">DejaVu</h1>
-      <p class="home" >Never forget want you want to experience.</p>
-      <%=link_to 'Experiences Feed', experiences_path, class: "btn btn-primary btn-lg" %>
+<div class="banner d-flex">
+  <div class="container m-auto">
+    <div class="cover d-flex align-items-center justify-content-center">
+      <div class="text-center">
+        <div class="banner-container-phrases" style="height: 50px">
+          <h4> <span data-controller="typed-js"></span> </h4>
+        </div>
+        <div>
+          <h2><%= link_to 'DEJAVU', experiences_path %></h2>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <%= content_for(:footer_class, "footer-home") %>
