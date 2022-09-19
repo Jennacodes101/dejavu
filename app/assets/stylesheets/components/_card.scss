@@ -1,19 +1,36 @@
 .card-experience {
+  height: 400px;
+  width: 280px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-experience > img {
-  height: 200px;
+  height: 302px;
   width: 100%;
   object-fit: cover;
 }
 
+.card-experience h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
 .card-experience h2 {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
+  opacity: .7;
   margin: 0;
+}
+
+.card-experience h3 {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: .7;
+  margin-top: 5px;
 }
 
 .card-experience p {
