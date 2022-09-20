@@ -9,9 +9,9 @@
 </div>
 
 <div class="container">
-  <div class="main-index container d-flex flex-wrap p-3 justify-content-around">
+  <div class="row">
     <%# i want the space that will be with 1/2 to cards (only with 2 cards in a row) and 1/2 to the map %>
-    <div class="col-6 row"> <%# grid of cards %>
+    <div class="col-6"> <%# grid of cards %>
       <div class="cards">
         <% @experiences.each do |experience|%>
           <%= render 'shared/card_experience', experience: experience %>
