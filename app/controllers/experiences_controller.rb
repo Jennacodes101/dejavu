@@ -21,6 +21,8 @@ class ExperiencesController < ApplicationController
     @my_experience = MyExperience.find_by(experience: @experience, user: current_user)
 
     @review = Review.find_by(my_experience_id: @my_experience.id) unless @my_experience.nil?
+
+    geo_map2(@experience)
   end
 
   def new
@@ -75,5 +77,17 @@ class ExperiencesController < ApplicationController
         image_url: helpers.asset_url("green_marker.png")
       }
     end
+  end
+
+  def geo_map2(experience)
+
+   @markers = [
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
+        image_url: helpers.asset_url("green_marker.png")
+      }
+    ]
   end
 end
