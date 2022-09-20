@@ -19,12 +19,14 @@ class ExperiencesController < ApplicationController
 
   def show
 
+    # @my_experiences = MyExperience.geocoded
      @my_experience = MyExperience.find_by(experience_id: @experience.id, user_id: current_user.id)
      if @my_experience == nil
        @my_experience = MyExperience.new
      else
        @review = Review.find_by(my_experience_id: @my_experience.id)
      end
+    geo_map2(@experience)
      #@reviews = @experience.reviews
   end
 
@@ -80,5 +82,17 @@ class ExperiencesController < ApplicationController
         image_url: helpers.asset_url("green_marker.png")
       }
     end
+  end
+
+  def geo_map2(experience)
+
+   @markers = [
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
+        image_url: helpers.asset_url("green_marker.png")
+      }
+    ]
   end
 end
