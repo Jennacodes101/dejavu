@@ -1,22 +1,24 @@
+<%= render 'shared/search' %>
+
 <div class="container">
-  <h1>Experiences index</h1>
-  <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
-  <div>
-    <%= render 'shared/search' %>
-    <br>
-    <%= render 'shared/search2' %>
-    <br>
+  <div class="row">
+    <div class="col-6">
+      <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
+    </div>
   </div>
-  <div class="main-index container d-flex flex-wrap p-3 justify-content-around">
+</div>
+
+<div class="container">
+  <div class="row">
     <%# i want the space that will be with 1/2 to cards (only with 2 cards in a row) and 1/2 to the map %>
-    <div class="col-6 row"> <%# grid of cards %>
+    <div class="col-6"> <%# grid of cards %>
       <div class="cards">
-          <% @experiences.each do |experience|%>
-            <%= render 'shared/card_experience', experience: experience %>
-          <% end %>
+        <% @experiences.each do |experience|%>
+          <%= render 'shared/card_experience', experience: experience %>
+        <% end %>
       </div>
     </div>
-    <div class="col-6"> <%# map %>
+    <div class="col-6">
       <div class="map">
         <%= render 'shared/map' %>
       </div>

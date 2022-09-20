@@ -18,16 +18,11 @@ class ExperiencesController < ApplicationController
   end
 
   def show
+    @my_experience = MyExperience.find_by(experience: @experience, user: current_user)
 
-    # @my_experiences = MyExperience.geocoded
-     @my_experience = MyExperience.find_by(experience_id: @experience.id, user_id: current_user.id)
-     if @my_experience == nil
-       @my_experience = MyExperience.new
-     else
-       @review = Review.find_by(my_experience_id: @my_experience.id)
-     end
+    @review = Review.find_by(my_experience_id: @my_experience.id) unless @my_experience.nil?
+
     geo_map2(@experience)
-     #@reviews = @experience.reviews
   end
 
   def new
