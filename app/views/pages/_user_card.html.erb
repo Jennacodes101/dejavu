@@ -5,17 +5,110 @@
         height: 100, width: 100, crop: :fill, quality: 70,
         radius: :max, format: :png%>
     </div>
+    <div class="row">
+      <div class="col-3-lg col-3-sm col-sm-12"> </div>
+      <div class="col-6-lg col-12-sm">
+        <div class="d-flex justify-content-center">
+          <h2 class="py-3 pe-1"> <%="#{current_user.first_name} #{current_user.last_name}"%> | </h2>
+          <h4 class="py-3 ps-1 align-self-center"> <%= current_user.username %> </h4>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <ul class="profile-stats-list" >
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle m-2" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                <%= "#{@friends.count} friends" %>
+              </button>
+                <div class="dropdown-menu friends-list-nav" aria-labelledby="dropdownMenuClickableInside" style="min-width: 275px;">
+                  <div class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                    <div class="nav-item" role="presentation">
+                      <button class="nav-link active px-3" id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab" aria-controls="pills-friends" aria-selected="true">Friends</button>
+                    </div>
+                    <div class="vl ms-2 me-2">
 
-    <div class="d-flex justify-content-center">
-      <h2 class="py-3 pe-1"> <%= current_user.first_name%> | </h2>
-      <h4 class="py-3 ps-1 align-self-center"> <%= current_user.username %> </h4>
+                    </div>
+                    <div class="nav-item" role="presentation">
+                      <button class="nav-link" id="pills-requests-tab" data-bs-toggle="pill" data-bs-target="#pills-requests" type="button" role="tab" aria-controls="pills-requests" aria-selected="false">Requests</button>
+                    </div>
+                  </div>
+                  <hr class="whitehr">
+
+                  <div class="tab-content" id="pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
+                      <%= render 'friends_list_card' %>
+                    </div>
+
+                    <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
+                      <div class="p-1">
+                        <%@friend_invites.each do |invite|  %>
+                          <div class="friend-invite-card">
+                            <!--if user created the friend request -->
+                            <%if @current_user.id == invite.user_id %>
+                              <div class="d-flex flex-row mb-3 px-1 mt-2">
+                                <% friend_info = User.find(invite.friend_id) %>
+                                <%= link_to profile_path(invite.friend_id) do  %>
+                                  <div class="align-self-center">
+                                    <%= cl_image_tag friend_info.photo.key,
+                                      height: 50, width: 50, crop: :fill, quality: 70,
+                                      radius: :max, format: :png %>
+                                  </div>
+                                  <div class="align-self-center">
+                                    <p> <%= "#{friend_info.first_name} #{friend_info.last_name}" %></p>
+                                  </div>
+                                <% end %>
+                                <div class="align-self-center ps-2 pe-2">
+                                  <p class="friend-card-request"> Requested</p>
+                                </div>
+                                <div class="align-self-center">
+                                  <%= link_to "Cancel", invitation_path(ids: {id1: current_user.id,
+                                    id2: invite.friend_id}), method: :delete, data: { confirm: 'Are you sure?' },
+                                    class: "btn btn-sm btn-danger"%>
+                                </div>
+                              </div>
+
+                            <% else %>
+                              <!--if user was sent the friend request -->
+                              <% friend_info = User.find(invite.user_id) %>
+                              <%= link_to profile_path(invite.user_id) do  %>
+                                <%= cl_image_tag friend_info.photo.key,
+                                  height: 25, width: 25, crop: :fill, quality: 70,
+                                  radius: :max, format: :png%>
+                                <p> <%= "#{friend_info.first_name} #{friend_info.last_name}" %></p>
+                                <%= link_to "Accept", invitation_path(ids: {id1: invite.friend_id,
+                                  id2: current_user.id}), method: :patch,
+                                  class: "btn btn-sm btn-success"%>
+                                <%= link_to "Reject", invitation_path(ids: {id1: current_user.id,
+                                  id2: invite.friend_id}), method: :delete, data: { confirm: 'Are you sure?' },
+                                  class: "btn btn-sm btn-danger"%>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </li>
+          <li> <%=link_to "#{@user_experiences.count} experiences", "#", class: "btn btn-secondary"  %></li>
+        </ul>
+      </div>
     </div>
-    <div class="text-center">
-      <p> <%= current_user.bio %> </p>
-    </div>
-    <div class="p-2 text-center">
-      <%= link_to "Edit", edit_user_registration_path(@current_user),
-        class: "btn btn-primary"%>
-    </div>
+
+    <button class="card-expand-btn" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseExample" aria-expanded="false"
+      aria-controls="collapseExample" data-controller="profile">
+    =
+  </button>
+  <div class="collapse" id="collapseExample">
+  <div class="p-2 text-center">
+    <p class ="my-3"> <%= current_user.bio %> </p>
+    <p class="mb-3"> <%= "Email: #{current_user.email}" %></p>
+    <p class="mb-3"> <%= " #{current_user.city}" %></p>
+    <p class="mb-3"> <%= "Birthday: #{current_user.birthday}" %></p>
+    <%= link_to "Edit", edit_user_registration_path(@current_user),
+      class: "btn btn-primary"%>
   </div>
 </div>

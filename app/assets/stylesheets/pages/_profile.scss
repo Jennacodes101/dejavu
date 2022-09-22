@@ -3,3 +3,53 @@
   color: $jet;
   border-radius: 8px;
 }
+.card-expand-btn{
+  border-style: solid;
+  border-color: $jet;
+  color: $jet;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: transparent;
+
+  &:hover{
+    transition: all 1s ease;
+    transform: rotate(180deg);
+  }
+
+}
+
+.profile-stats-list {
+  list-style: none;
+  li {
+    display: inline-block;
+  }
+}
+
+.friends-list-nav {
+  border-radius: 24px !important;
+  background-color: $jet;
+  color: $cultured;
+}
+.vl {
+  border-left: 2px solid $cultured;
+  border-radius: 10px;
+}
+
+hr.whitehr {
+  border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, $jet, $cultured, $jet);
+}
+
+.friend-invite-card{
+  border: 1px solid white;
+  min-width: 270px;
+  border-radius: 4px;
+  margin-bottom: 3px;
+}
+
+.friend-card-request{
+  font-size: smaller;
+  background-color: rgb(47, 46, 46);
+  margin: 3px 2px;
+}
