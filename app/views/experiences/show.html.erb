@@ -15,7 +15,8 @@
         <p> <%= @experience.contact %> </p>
 
           <% unless !@my_experience.nil? %>
-          <%= link_to 'Add to wishlist', my_experiences_path, class:"btn btn-success" %>
+
+          <%= link_to 'Add to wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn btn-success" %>
           <% end %>
           <% unless @my_experience.nil? %>
             <%= link_to 'Add a review', new_my_experience_review_path(@my_experience.id), class: "btn btn-success" %>

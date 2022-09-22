@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
 
-  before_action :find_experience, only: [:show, :edit, :update, :destroy, :create_review]
+  before_action :find_experience, only: [:show, :edit, :update, :destroy, :create_review, :create_alt]
 
 
   def index
@@ -39,6 +39,13 @@ class ExperiencesController < ApplicationController
       redirect_to experience_path(@experience), notice: 'Experience was successfully created.'
     else
       render :new
+    end
+  end
+
+  def create_alt
+    @my_experience = MyExperience.new(done: false , user_id: current_user.id, experience_id: params[:id] )
+    if @my_experience.save
+      redirect_to my_experiences_path, notice: 'My_Experience was successfully created.'
     end
   end
 
