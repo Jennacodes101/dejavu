@@ -9,12 +9,8 @@
         <%= render 'user_card' %>
       </div>
       <div class="row py-3">
-        <%= render 'user_experiences' %>
+        <%= render 'user_dashboard' %>
       </div>
-      <div class="row py-3">
-        <%= render 'user_wishlist' %>
-      </div>
-
     <% else  %>
       <div class="row py-3 text-center">
         <h3> <%= "Welcome to #{@profile_user.first_name}'s account" %></h3>

@@ -1,0 +1,26 @@
+<div class="ms-1">
+  <!-- -->
+  <% @friends.each do |friend| %>
+    <div clas="friend-list-card d-flex">
+    <%= link_to profile_path(friend.id) do %>
+      <div class="d-inline-flex ">
+        <% if friend.photo.attached?  %>
+          <%= cl_image_tag friend.photo.key,
+            height: 50, width: 50, crop: :fill, quality: 70,
+          radius: :max, format: :png %>
+        <% else %>
+          <%= image_tag('user_avatar.png', class: 'friends-list-photo') %>
+        <% end %>
+        <div>
+          <p> <%= "#{friend.first_name} #{friend.last_name}" %></p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <div class="align-self-center">
+      <%= link_to "Cancel", invitation_path(ids: {id1: current_user.id,
+        id2: friend.id}), method: :delete, data: { confirm: 'Are you sure?' },
+        class: "btn btn-sm btn-danger"%>
+    </div>
+  <% end %>
+</div>
