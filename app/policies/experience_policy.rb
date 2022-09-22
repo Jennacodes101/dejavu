@@ -23,4 +23,9 @@ class ExperiencePolicy < ApplicationPolicy
     user == record.user
   end
 
+  def create_alt?
+    true
+  end
+
+
 end

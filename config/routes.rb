@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # experiences with nested my_experiences
   resources :experiences do
     resources :my_experiences, only: [:new, :create]
+    post :create_alt, on: :member
   end
 
   # my_experiences with nested reviews
