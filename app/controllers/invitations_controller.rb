@@ -7,8 +7,9 @@ class InvitationsController < ApplicationController
     id2 = params[:ids][:id2]
     @invitation = Invitation.new(user_id: id1, friend_id: id2)
     # if inverse exists user_id: id2, friend_id: id1 return error
+    authorize @invitation
     @invitation.save!
-    redirect_to profile_path(@profile_user.id)
+    redirect_to profile_path(id2)
     #add code to js btn here
   end
 
