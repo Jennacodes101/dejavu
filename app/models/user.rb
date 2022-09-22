@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :invitations, dependent: :destroy
   has_many :pending_invitations, -> {where confirmed: false}, class_name: "Invitation", foreign_key: "friend_id"
-
+  has_many :requested_invitations, ->{where confirmed: false}, class_name: "Invitation", foreign_key: "user_id"
   has_one_attached :photo
 
   def friends

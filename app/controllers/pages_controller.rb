@@ -12,7 +12,10 @@ class PagesController < ApplicationController
     # set user access
     if current_user.id == params[:id].to_i
       @access = 'owner'
-      @friend_invites = current_user.pending_invitations
+      # invite info - connected to User info for name, photo.key but not of user
+      @friend_invites = (current_user.pending_invitations + current_user.requested_invitations).sort_by(&:created_at)
+      # user info - friend
+      @friends = current_user.friends
     else
       @access = 'visitor'
       @profile_user = User.find_by(id: params[:id])
