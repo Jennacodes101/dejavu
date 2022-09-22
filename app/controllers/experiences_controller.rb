@@ -19,7 +19,6 @@ class ExperiencesController < ApplicationController
 
   def show
     @my_experience = MyExperience.find_by(experience: @experience, user: current_user)
-
     @review = Review.find_by(my_experience_id: @my_experience.id) unless @my_experience.nil?
 
     geo_map2(@experience)
