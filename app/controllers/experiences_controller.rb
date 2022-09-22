@@ -44,7 +44,7 @@ class ExperiencesController < ApplicationController
   def create_alt
     @my_experience = MyExperience.new(done: false , user_id: current_user.id, experience_id: params[:id] )
     if @my_experience.save
-      redirect_to my_experiences_path, notice: 'My_Experience was successfully created.'
+      redirect_to profile_path(current_user.id), notice: 'My_Experience was successfully created.'
     end
   end
 
