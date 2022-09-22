@@ -2,7 +2,51 @@
   // max-width: 500px;
 }
 .info-border {
+  height: 576px;
+  width: 656px;
   background-color: $cultured;
   box-shadow: 10px 10px 155px -57px rgba(115,114,115,1);
   border-radius: 16px;
+}
+
+.experience-name {
+  margin-bottom: 16px;
+  h2{
+    margin: 0px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.experience-infos {
+  margin-top: 16px;
+  h6 {
+    font-style: italic;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.inner {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.review {
+  margin: 0;
+  padding: 0;
+  p {
+    margin: 0;
+  }
+
+  .details {
+    color: gray;
+    font-size: smaller;
+  }
 }

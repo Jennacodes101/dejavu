@@ -44,17 +44,12 @@
     color: $jet;
     font-weight: 500;
   }
-  .nav-link {
-    color: $jet;
-    font-weight: 500;
-  }
 }
 
-
-// .nav-item:hover{
-//   cursor: pointer;
-// }
-
-// .bordered {
-//   text-shadow: 0px 0px 9px rgba(72,72,72,0.62);
-// }
+.nav-link {
+  color: $jet;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: $brown;
+}

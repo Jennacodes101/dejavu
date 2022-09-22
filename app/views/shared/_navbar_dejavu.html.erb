@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
+<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
   <div class="container flex align-items-center">
     <div class="navbar-logo col-md-4">
       <h1> <%= link_to "DEJAVU", root_path, class: "dropdown-item" %> </h1>
@@ -17,7 +17,7 @@
           <li class="nav-item dropdown active">
             <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, height: 52, width: 52, radius: "max",  crop: :fill, fetch_format: :png %>
+                <%= cl_image_tag current_user.photo.key, height: 48, width: 48, radius: "max",  crop: :fill, fetch_format: :png %>
               <% else %>
                 <%= image_tag("user_avatar.png", class: "avatar")  %>
               <% end %>
