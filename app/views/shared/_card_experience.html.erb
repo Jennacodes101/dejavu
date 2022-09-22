@@ -1,6 +1,5 @@
 <div class="card card-experience">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <%# <%= cl_image_tag experience.photo.key, height: 302, width: 280, radius: max,  crop: :fill, fetch_format: :png %>
+  <%= cl_image_tag experience.photo.key, height: 302, width: 280,  crop: :fill, fetch_format: :png %>
   <div class="card-experience-infos">
     <div>
       <h1><%= link_to experience.name, experience_path(experience.id) %></h1>
@@ -15,7 +14,8 @@
         </label>
       </div>
     </div>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-experience-user avatar-bordered" />
-    <%# <%= cl_image_tag experience.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %>
+    <div class="card-experience-user avatar-bordered">
+      <%= cl_image_tag experience.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %>
+    </div>
   </div>
 </div>

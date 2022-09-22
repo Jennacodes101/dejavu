@@ -1,17 +1,19 @@
 .footer {
-  background: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 48px;
-  color: rgba(0,0,0,0.3);
+  // justify-content: space-between;
+  height: 64px;
+  color: $jet;
+  border-top-style: solid;
+  border-color: $jet;
+  border-width: 1px;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: $jet;
   opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
@@ -21,6 +23,7 @@
   opacity: 1;
 }
 .footer-copyright {
+  text-align: right;
   color: black;
 }
 
@@ -31,12 +34,4 @@
   background: transparent;
   box-shadow: none;
 
-}
-.nav-link {
-  color: white;
-  font-weight: bold;
-}
-
-.nav-link:hover {
-  color:coral;
 }

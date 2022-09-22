@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.my_experience_id = params["my_experience_id"]
+    # @review.user = current_user
     authorize @review
     if @review.save
       redirect_to experience_path(@my_experience.experience_id), notice: 'Review was successfully created.'
