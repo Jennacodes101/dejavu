@@ -14,13 +14,15 @@ class InvitationsController < ApplicationController
   end
 
   def destroy
+    authorize @invitation
     @invitation.destroy
     redirect_to profile_path(current_user)
   end
 
   def update
-    # p current_user
-    invitation.update(confirmed: true)
+    authorize @invitation
+    @invitation.confirmed = true
+    @invitation.save!
     redirect_to profile_path(current_user)
   end
 
