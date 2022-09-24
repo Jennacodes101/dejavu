@@ -1,11 +1,17 @@
+.screen {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
+}
+
+
 .descript {
   // max-width: 500px;
 }
 .info-border {
-  height: 576px;
-  width: 656px;
-  background-color: $cultured;
-  box-shadow: 10px 10px 155px -57px rgba(115,114,115,1);
+  // height: 576px;
+  // width: 656px;
+  background-color: white;
+  // box-shadow: 10px 10px 155px -57px rgba(115,114,115,1);
   border-radius: 16px;
 }
 
@@ -49,4 +55,9 @@
     color: gray;
     font-size: smaller;
   }
+}
+
+.scrollable{
+  overflow-y: auto;
+  max-height: 300px;
 }

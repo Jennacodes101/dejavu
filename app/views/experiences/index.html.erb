@@ -1,25 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= render 'shared/search' %>
-      <br>
-      <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
-    </div>
-  </div>
-</div>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="cards"> <%# grid of cards %>
-        <% @experiences.each do |experience|%>
-          <%= render 'shared/card_experience', experience: experience %>
-        <% end %>
+<div style="margin-top: 80px">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <%= render 'shared/search' %>
+        <br>
+        <%= link_to 'Create a new Experience', new_experience_path, class:"btn btn-success" %>
       </div>
     </div>
-    <div class="col-6">
-      <div class="map">
-        <%= render 'shared/map' %>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="cards"> <%# grid of cards %>
+          <% @experiences.each do |experience|%>
+            <%= render 'shared/card_experience', experience: experience %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="map">
+          <%= render 'shared/map' %>
+        </div>
       </div>
     </div>
   </div>

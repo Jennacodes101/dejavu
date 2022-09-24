@@ -3,11 +3,12 @@
   align-items: center;
   // justify-content: space-between;
   height: 64px;
-  color: $jet;
   border-top-style: solid;
   border-color: $jet;
   border-width: 1px;
+  background-color: $jet;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -24,14 +25,12 @@
 }
 .footer-copyright {
   text-align: right;
-  color: black;
+  color: $jet;
 }
 
 //for second homepage
 .footer-home {
-  //position: absolute;
+  bottom: 0;
   width: 100%;
-  background: transparent;
-  box-shadow: none;
-
+  background-color: $cultured;
 }

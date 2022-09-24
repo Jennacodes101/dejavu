@@ -1,69 +1,84 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="inner">
-        <div class="d-flex justify-content-between">
-          <%= link_to '<', experiences_path %>
-          <% unless !@my_experience.nil? %>
-
-
-          <%= link_to 'Add to wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn btn-success" %>
-
-          
-
-          <% end %>
-          <% unless @my_experience.nil? %>
-            <%= link_to '+ Review', new_my_experience_review_path(@my_experience.id) %>
-            <%# link_to 'Mark it as done', new_my_experience_review_path(@experience), class: "btn btn-success" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="p-4 info info-border">
-        <div class="d-flex justify-content-between" >
-          <div class="experience-name">
-            <h2> <%= @experience.name %> </h2>
-            <p> <%= @experience.city %>, <%= @experience.country %> </p>
+<div class="screen">
+  <div class="container" style="height: 100%">
+    <div class="row">
+      <div class="col-6">
+        <div class="inner">
+          <div class="d-flex justify-content-between">
+            <%= link_to '<', experiences_path %>
           </div>
-          <% if policy(@experience).edit? %>
-            <%= link_to '...', edit_experience_path %>
-            <%# <%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-
-        <div class="image">
-          <%= cl_image_tag @experience.photo.key, crop: :fill, width: 400, height: 300, quality: 70, radius: 20, format: :png %>
-        </div>
-
-        <div class="experience-infos">
-          <h6> " <%= @experience.description %> " </h6>
-          <p> <strong>Address:</strong> <%= @experience.address %> </p>
-          <p> <strong>Contact:</strong> <%= @experience.contact %> </p>
-          <p> <%= @experience.url %> </p>
         </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="map-show">
-        <%= render 'shared/map_show' %>
-      </div>
-    </div>
-  </div>
-</div>
+    <div class="p-4 info info-border">
+      <div class="container">
+        <div class="row">
+            <div class="col-6 overflow-auto" style="height: 520px">
+              <div class="row">
+                <div class="col-8">
+                  <div class="d-flex justify-content-between">
+                    <div class="experience-name">
+                      <h2> <%= @experience.name %> </h2>
+                      <p> <%= @experience.city %>, <%= @experience.country %> </p>
+                    </div>
+                    <div class="m-8">
+                      <% if policy(@experience).edit? %>
+                        <%= link_to '...', edit_experience_path %>
+                        <%# <%= link_to 'delete', experience_path(@experience), method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="d-flex flex-row-reverse">
+                    <div class="experience-buttons">
+                      <% unless !@my_experience.nil? %>
+                        <%= link_to '+ Wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn btn-success" %>
+                      <% end %>
+                      <% unless @my_experience.nil? %>
+                        <%= link_to '+ Review', new_my_experience_review_path(@my_experience.id) %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-<div class="container">
-  <div class="inner">
-    <div class="row">
-      <h5>Reviews:</h5>
-      <hr>
-    </div>
-    <div class="row">
-      <% @experience.reviews.each do |review| %>
-        <%= render 'shared/card_review_experience' %>
-      <% end %>
+              <div class="row">
+                <div class="image">
+                  <%= cl_image_tag @experience.photo.key, crop: :fill, width: 400, height: 300, quality: 70, radius: 20, format: :png %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="experience-infos">
+                  <h6> " <%= @experience.description %> " </h6>
+                  <p> <strong>Address:</strong> <%= @experience.address %> </p>
+                  <p> <strong>Contact:</strong> <%= @experience.contact %> </p>
+                  <p> <%= @experience.url %> </p>
+                </div>
+              </div>
+
+              <div class="inner">
+                <div class="container">
+                  <div class="row">
+                    <hr>
+                    <h5>Reviews:</h5>
+                  </div>
+                  <div class="row">
+                    <% @experience.reviews.each do |review| %>
+                      <%= render 'shared/card_review_experience' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="col-6">
+            <div class="map-show">
+              <%= render 'shared/map_show' %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
