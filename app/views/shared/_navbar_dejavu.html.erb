@@ -1,4 +1,4 @@
-<div class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
+<div class="navbar fixed-top navbar-expand-sm navbar-lewagon <%= yield(:navbar_class) %>">
   <div class="container flex align-items-center">
     <div class="navbar-logo col-md-4">
       <h1> <%= link_to "DEJAVU", root_path, class: "dropdown-item" %> </h1>
@@ -23,7 +23,7 @@
               <% end %>
             </div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Feed", "#", class: "dropdown-item" %>
+              <%= link_to "Feed", feed_path, class: "dropdown-item" %>
               <%= link_to "Explore", experiences_path, class: "dropdown-item" %>
               <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "dropdown-item" %>

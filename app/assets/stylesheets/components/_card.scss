@@ -69,3 +69,28 @@
   font-weight: bolder;
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
+
+// ---------- FEED --------- //
+
+.card-feed {
+  width: 660px;
+  height: 360px;
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+
+  .user-avatar{
+    width: 40px;
+    height: 40px;
+    background-color: aquamarine;
+    border-radius: 50px;
+  }
+
+  .experience-image{
+    width: 592px;
+    height: 212px;
+    background-color: aquamarine;
+    padding: 0px;
+    margin: 0px;
+  }
+}
