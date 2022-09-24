@@ -1,19 +1,31 @@
 <div class="navbar fixed-top navbar-expand-sm navbar-lewagon <%= yield(:navbar_class) %>">
-  <div class="container flex align-items-center">
+  <div class="container">
     <div class="navbar-logo col-md-4">
       <h1> <%= link_to "DEJAVU", root_path, class: "dropdown-item" %> </h1>
     </div>
-
-    <div class="navbar-title col-md-4 d-flex align-items-center">
-      <h1> </h1>
+    <div class="navbar-search d-flex col-md-4 align-items-center justify-content-center">
+      <div class="form-search">
+        <%= form_tag experiences_path, method: :get do %>
+        <div class="row">
+          <div class="col-8">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find an Experience" %>
+          </div>
+          <div class="col-4">
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-
     <div class="collapse navbar-collapse col-md-4" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
+          <%# <li class="nav-item">
             <%= link_to "Explore",experiences_path, class: "nav-link bordered" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item dropdown active">
             <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <% if current_user.photo.attached? %>
@@ -23,7 +35,7 @@
               <% end %>
             </div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Feed", feed_path, class: "dropdown-item" %>
+              <%# <%= link_to "Feed", feed_path, class: "dropdown-item" %>
               <%= link_to "Explore", experiences_path, class: "dropdown-item" %>
               <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "dropdown-item" %>
