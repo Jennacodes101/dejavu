@@ -19,7 +19,7 @@
     </div>
     <div class="align-self-center">
       <%= link_to "Cancel", invitation_path(ids: {id1: current_user.id,
-        id2: friend.id}), method: :delete, data: { confirm: 'Are you sure?' },
+        id2: friend.id}), method: :destroy, data: { confirm: 'Are you sure?' },
         class: "btn btn-sm btn-danger"%>
     </div>
   <% end %>

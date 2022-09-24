@@ -1,0 +1,45 @@
+<div class="p-1">
+  <%@friend_invites.each do |invite|  %>
+    <div class="friend-invite-card d-flex flex-row mb-3">
+      <!--if user created the friend request -->
+      <%if @current_user.id == invite.user_id %>
+        <% friend_info = User.find(invite.friend_id) %>
+          <%= link_to profile_path(invite.friend_id) do  %>
+            <div class="p-2">
+              <%= cl_image_tag friend_info.photo.key,
+                height: 50, width: 50, crop: :fill, quality: 70,
+                radius: :max, format: :png %>
+            </div>
+            <div class="p-2">
+              <p> <%= "#{friend_info.first_name} #{friend_info.last_name}" %></p>
+            </div>
+          <% end %>
+          <div class="d-inline-flex">
+            <p class="friend-card-request"> Requested</p>
+            <div class="">
+              <%= link_to "Cancel", invitation_path(ids: {id1: current_user.id,
+                id2: invite.friend_id}), method: :destroy, data: { confirm: 'Are you sure?' },
+                class: "btn btn-sm btn-danger"%>
+            </div>
+          </div>
+
+
+      <% else %>
+        <!--if user was sent the friend request -->
+        <% friend_info = User.find(invite.user_id) %>
+        <%= link_to profile_path(invite.user_id) do  %>
+          <%= cl_image_tag friend_info.photo.key,
+            height: 25, width: 25, crop: :fill, quality: 70,
+            radius: :max, format: :png%>
+          <p> <%= "#{friend_info.first_name} #{friend_info.last_name}" %></p>
+          <%= link_to "Accept", invitation_path(ids: {id1: invite.user_id,
+            id2: current_user.id}), method: :patch,
+            class: "btn btn-sm btn-success"%>
+          <%= link_to "Reject", invitation_path(ids: {id1: current_user.id,
+            id2: invite.friend_id}), method: :destroy, data: { confirm: 'Are you sure?' },
+            class: "btn btn-sm btn-danger"%>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
