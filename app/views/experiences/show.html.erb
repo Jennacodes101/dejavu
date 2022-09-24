@@ -5,7 +5,12 @@
         <div class="d-flex justify-content-between">
           <%= link_to '<', experiences_path %>
           <% unless !@my_experience.nil? %>
-          <%= link_to '+ Wishlist', new_experience_my_experience_path(@experience) %>
+
+
+          <%= link_to 'Add to wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn btn-success" %>
+
+          
+
           <% end %>
           <% unless @my_experience.nil? %>
             <%= link_to '+ Review', new_my_experience_review_path(@my_experience.id) %>
