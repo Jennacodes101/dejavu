@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-6">
@@ -12,9 +10,8 @@
 <br>
 <div class="container">
   <div class="row">
-    <%# i want the space that will be with 1/2 to cards (only with 2 cards in a row) and 1/2 to the map %>
-    <div class="col-6"> <%# grid of cards %>
-      <div class="cards">
+    <div class="col-6">
+      <div class="cards"> <%# grid of cards %>
         <% @experiences.each do |experience|%>
           <%= render 'shared/card_experience', experience: experience %>
         <% end %>
