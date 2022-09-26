@@ -1,29 +1,31 @@
-<div class="container">
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="experiences-tab" data-bs-toggle="tab" data-bs-target="#experiences-tab-pane" type="button" role="tab" aria-controls="experiences-tab-pane" aria-selected="true">Experiences</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab" data-bs-target="#wishlist-tab-pane" type="button" role="tab" aria-controls="wishlist-tab-pane" aria-selected="false">Wishlist</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done-tab-pane" type="button" role="tab" aria-controls="done-tab-pane" aria-selected="false">done</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false" >My reviews</button>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="experiences-tab-pane" role="tabpanel" aria-labelledby="experiences-tab" tabindex="0">
-      <%= render 'user_experiences' %>
+<div class="border-lifted mt-4">
+  <div class="p-4">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="experiences-tab" data-bs-toggle="tab" data-bs-target="#experiences-tab-pane" type="button" role="tab" aria-controls="experiences-tab-pane" aria-selected="true">Experiences</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="wishlist-tab" data-bs-toggle="tab" data-bs-target="#wishlist-tab-pane" type="button" role="tab" aria-controls="wishlist-tab-pane" aria-selected="false">Wishlist</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="done-tab" data-bs-toggle="tab" data-bs-target="#done-tab-pane" type="button" role="tab" aria-controls="done-tab-pane" aria-selected="false">Done</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false" >Reviews</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="experiences-tab-pane" role="tabpanel" aria-labelledby="experiences-tab" tabindex="0">
+        <%= render 'user_experiences' %>
+      </div>
+      <div class="tab-pane fade" id="wishlist-tab-pane" role="tabpanel" aria-labelledby="wishlist-tab" tabindex="0">
+        <%= render 'user_wishlist' %>
+      </div>
+      <div class="tab-pane fade" id="done-tab-pane" role="tabpanel" aria-labelledby="done-tab" tabindex="0">
+        <%= render 'user_done' %>
+      </div>
+      <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+      Reviews </div>
     </div>
-    <div class="tab-pane fade" id="wishlist-tab-pane" role="tabpanel" aria-labelledby="wishlist-tab" tabindex="0">
-      <%= render 'user_wishlist' %>
-    </div>
-    <div class="tab-pane fade" id="done-tab-pane" role="tabpanel" aria-labelledby="done-tab" tabindex="0">
-      <%= render 'user_done' %>
-    </div>
-    <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
-    reviews</div>
   </div>
 </div>

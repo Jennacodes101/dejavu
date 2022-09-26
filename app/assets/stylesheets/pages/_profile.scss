@@ -4,18 +4,19 @@
   border-radius: 8px;
 }
 .card-expand-btn{
+  height: 28px;
+  width: 28px;
   border-style: solid;
   border-color: $jet;
   color: $jet;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 50%;
   background-color: transparent;
 
   &:hover{
     transition: all 1s ease;
     transform: rotate(180deg);
   }
-
 }
 
 .profile-stats-list {
@@ -23,6 +24,8 @@
   li {
     display: inline-block;
   }
+  margin: 0px;
+  padding: 0px;
 }
 
 .friends-list-nav {
@@ -63,5 +66,10 @@ hr.whitehr {
 }
 
 .nav-link {
-  color: white;
+  color: $jet;
+}
+
+.screen {
+  margin-top: 80px;
+  height: calc(100vh - 80px);
 }

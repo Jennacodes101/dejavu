@@ -1,17 +1,26 @@
 .border-lifted {
-border-radius: 4px;
-box-shadow: 3px 8px 153px 5px rgba(20,20,20,0.33);
+  border-radius: 16px;
+  // jenna's box-shadow: 3px 8px 153px 5px rgba(20,20,20,0.33);
+  box-shadow: 0px 1px 1px rgba(20,20,20,0.08);
+  background-color: white;
+}
+
+.border-lifted-img{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 1px rgba(20,20,20,0.08);
 }
 
 .border-sunk {
-  background-color: $cultured;
-  border-radius: 4px;
-  box-shadow: 3px 8px 153px 5px rgba(20,20,20,0.33);
+  // background-color: $cultured;
+  border-radius: 8px;
+  // box-shadow: 3px 8px 153px 5px rgba(20,20,20,0.33);
 }
 
 .bg-exp {
-  background: $brown;
-  color: $white;
-  padding: 3px 6px;
+  // background: $brown;
+  // color: $white;
+  // padding: 3px 6px;
   border-radius: 12px;
 }

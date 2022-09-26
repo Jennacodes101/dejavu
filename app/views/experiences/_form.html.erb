@@ -1,20 +1,22 @@
-
-<%= simple_form_for experience do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :exp_type, collection: @exp_types, prompt: 'Choose an experience type', label:' experience type' %>
-  <%= f.input :country, as: :string %>
-  <%= f.input :city %>
-
-
-  <%= f.input :address,
-              input_html: { data: { geocoder_target: "address" }, class: "d-none" },
-              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-
-  <p> Optional: </p>
-  <%= f.input :photo, as: :file, required: false %>
-
-  <%= f.button :submit, class: "btn btn-primary rounded" %>
+<div class="screen">
+  <div class="container pt-4">
+    <%= simple_form_for experience do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :exp_type, collection: @exp_types, prompt: 'Choose an experience type', label:' experience type' %>
+      <%= f.input :country, as: :string %>
+      <%= f.input :city %>
 
 
-<% end %>
+      <%= f.input :address,
+                  input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+
+      <p> Optional: </p>
+      <%= f.input :photo, as: :file, required: false %>
+
+      <%= f.button :submit, class: "btn btn-primary rounded" %>
+
+    <% end %>
+  </div>
+</div>

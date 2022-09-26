@@ -1,5 +1,7 @@
-<%= simple_form_for [@my_experience, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.submit "submit review", class: 'btn btn-primary' %>
-<% end %>
+<div style="margin-top: 80px">
+  <%= simple_form_for [@my_experience, @review] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :content %>
+    <%= f.submit "submit review", class: 'btn btn-primary' %>
+  <% end %>
+</div>

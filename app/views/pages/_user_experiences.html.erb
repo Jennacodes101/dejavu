@@ -1,30 +1,28 @@
-
 <div class="container border-sunk">
   <div class="row my-1">
     <div class="container-fluid py-1">
-    <div class="d-flex">
-      <h2 class="bg-exp">Experiences created by you</h2>
-    </div>
+      <div class="d-flex">
+        <h2 class="bg-exp"> 's experiences </h2>
+      </div>
       <div class="d-flex flex-row flex-nowrap overflow-auto">
         <% @user_experiences.each do |experience| %>
-          <div class="co-12 col-sm-6 col-md-4">
-            <%= link_to experience_path(experience), class: "text-decoration-none" do %>
-              <div class="card" style="width: 18rem;">
-                <% if experience.photo.attached? %>
-                  <div>
-                    <%= cl_image_tag experience.photo.key, crop: :fill, width: 300, height: 300, :format => :png%>
-                  </div>
-                <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= experience.name %></h5>
-                  <p class="card-text"></p>
-                  <a href="#" class="btn btn-primary-small">edit</a>
+          <div style="padding: 10px">
+            <div class="card card-experience">
+              <%= cl_image_tag experience.photo.key, height: 302, width: 280,  crop: :fill, fetch_format: :png %>
+              <div class="card-experience-infos">
+                <div>
+                  <h1><%= link_to experience.name, experience_path(experience.id) %></h1>
+                  <h2><%= experience.city %>, <%= experience.country %></h2>
+                  <h3> #<%= experience.exp_type %></h3>
+                </div>
+                <div class="card-experience-edit">
+                  <%= link_to '...', edit_experience_path %>
                 </div>
               </div>
-            <% end %>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  </div>
+</div>

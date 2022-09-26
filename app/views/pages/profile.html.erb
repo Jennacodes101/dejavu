@@ -1,27 +1,30 @@
-<div class="container ">
-<%= @access %>
-<%= current_user.id %>
-    <% if @access == 'owner' %>
-      <div class="row py-3 text-center">
-        <h1>  Your Profile  </h1>
-      </div>
-      <div class="row">
-        <%= render 'user_card' %>
-      </div>
-      <div class="row py-3">
-        <%= render 'user_dashboard' %>
-      </div>
-    <% else  %>
-      <div class="row py-3 text-center">
-        <h3> <%= "Welcome to #{@profile_user.first_name}'s account" %></h3>
-      </div>
-      <div class="row">
-        <div class="col-3-lg col-3-md col-12-sm">
-          <%= render "user_visit_card" %>
+<div style="margin-top: 80px; margin-bottom: 24px">
+  <div class="container">
+    <%# <%= @access %>
+    <% current_user.id %>
+      <% if @access == 'owner' %>
+        <%# <div class="row py-3 text-center">
+          <h1>  Your Profile  </h1>
+        </div> %>
+        <div class="row">
+          <%= render 'user_card' %>
         </div>
-        <div class="col-9 col-12-sm">
-          <%= render 'user_experiences' %>
+        <div class="">
+          <%= render 'user_dashboard' %>
         </div>
-      </div>
-    <% end %>
+      <% else  %>
+        <div class="row">
+          <h3> <%= "Welcome to #{@profile_user.first_name}'s account" %></h3>
+        </div>
+        <div class="row">
+          <div class="col-3-lg col-3-md col-12-sm">
+            <%= render "user_visit_card" %>
+          </div>
+          <div class="col-9 col-12-sm">
+            <%= render 'user_experiences' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
