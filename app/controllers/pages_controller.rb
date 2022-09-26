@@ -8,6 +8,8 @@ class PagesController < ApplicationController
   def feed
     @experiences=Experience.where(user_id: current_user.id)
 
+    # @friends = current_user.friends
+
     # Start PgSearch
     if params[:query].present?
       @experiences = Experience.global_search(params[:query])

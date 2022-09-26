@@ -45,16 +45,13 @@ hr.whitehr {
 }
 
 .friend-invite-card{
-  border: 1px solid white;
+  border: 2px solid #28282A;
   min-width: 270px;
   border-radius: 4px;
   color: $cultured;
-}
-
-.friend-card-request{
-  font-size: smaller;
-  background-color: rgb(47, 46, 46);
-  margin: 3px 2px;
+  padding: 1px 4px;
+  margin-bottom: 2px;
+  background-color: #28282A;
 }
 
 .friends-list-photo {
@@ -65,3 +62,44 @@ hr.whitehr {
 .nav-link {
   color: white;
 }
+
+.btn-friends-cancel {
+  background-color: #D95D39;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 0px 4px 4px 0px;
+  &:hover{
+    background-color: #d97053;
+  }
+}
+.friend-card-request{
+  font-size: 7px;
+  background-color: $cultured;
+  padding: 6.72px 4px;
+  border-radius: 4px 0px 0px 4px;
+  color: $jet !important;
+  margin: 0px !important;
+}
+
+.btn-friends-accept {
+  background-color: $cultured;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 4px 0px 0px 4px;
+  color: #439775 !important;
+  &:hover{
+    background-color: #439775;
+    color: $cultured !important;
+  }
+}
+
+.btn-friends-cancel-full{
+  background-color: #D95D39;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 4px;
+  &:hover{
+    background-color: #d97053;
+  }
+}
+
