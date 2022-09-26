@@ -1,0 +1,18 @@
+<%# <div class="search_div">
+  <form action="">
+    <input type="text" :query, params[:query], class="search_input" placeholder="Find an Experience">
+    <button type="submit">
+      <i class="fa-solid fa-magnifying-glass-location search_button"></i>
+    </button>
+  </form>
+</div> %>
+<div class="search_div">
+  <%= simple_form_for experiences_path, method: :get do |f| %>
+
+      <%= f.text_field :query %>
+
+      <%= button_tag( :class => "search_button") do %>
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+      <% end %>
+  <% end %>
+</div>
