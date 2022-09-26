@@ -1,11 +1,10 @@
-<div class="spacial-search">
-  <%= form_tag experiences_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        name: "search",
-        placeholder: "Find an Experience" %>
-      <button type="submit" class="btn btn-search">
-        <i class="fa fa-search"></i>
-      </button>
-  <% end %>
+<div class="row no-gutters mt-3 align-items-center">
+  <div class="col col-md-4">
+    <input class="form-control border-secondary rounded-pill pr-5" type="search" value="search" id="example-search-input2">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-outline-light text-dark border-0 rounded-pill ml-n5" type="button">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
 </div>

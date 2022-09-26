@@ -12,3 +12,33 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-join {
+  font-size: 16px;
+  border: 1px solid;
+  padding: 4px 24px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+.btn-login {
+  font-size: 16px;
+}
+
+.search_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #217afa;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F4F4F4;
+  text-decoration: none;
+  border-color: #A17254;
+}
+
+.btn-create-experience {
+  padding-top: 20px;
+  padding-left: 220px;
+}
