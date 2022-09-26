@@ -10,11 +10,13 @@
           <div class="col-8">
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
+              class: "form-control border-secondary rounded-pill pr-5",
               placeholder: "Find an Experience" %>
           </div>
           <div class="col-4">
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+            <%= button_tag( :class => "search_button") do %>
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+            <% end %>
           </div>
         </div>
         <% end %>
