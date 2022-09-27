@@ -1,18 +1,18 @@
 <div class="review">
-  <div class="container">
-    <div class="d-flex flex-row">
-      <div class="row"> <%= cl_image_tag @review.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
-      <div class="p-2 row">
-        <p> <%= @review.user.username %> </p>
-        <p> <%= @review.user.city %> </p>
-      </div>
+  <div class="d-flex flex-row">
+    <div class="row align-self-center"> <%= cl_image_tag @review.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
+    <div class="p-2 row">
+      <p> @<%= @review.user.username %> </p>
+      <p style="color: grey"> <%= @review.user.city %> </p>
     </div>
-    <div class="row">
-      <p> <%= @review.rating %> ⭐️ </p>
-      <p> "<%= @review.content %>" </p>
-      <div class="details">
-        <p> <%= @review.created_at %> </p>
-      </div>
+  </div>
+  <div class="row">
+    <p> <%= @review.rating %> ⭐️ </p>
+    <p> "<%= @review.content %>" </p>
+    <div class="details pt-4 pb-2">
+      <p> <%= @review.created_at %> </p>
+    </div>
+    <div class="container p-2">
       <hr>
     </div>
   </div>
