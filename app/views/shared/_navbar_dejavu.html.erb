@@ -6,15 +6,15 @@
     <div class="navbar-search d-flex col-md-4">
       <div class="form-search">
         <%= form_tag experiences_path, method: :get do %>
-        <div class="row">
+        <div class="row position-relative">
           <div class="col-11">
             <%= text_field_tag :query,
               params[:query],
               class: "form-control border-secondary rounded-pill pr-5",
               placeholder: "Find an Experience" %>
           </div>
-          <div class="col-1">
-            <%= button_tag( :class => "search_button") do %>
+          <div class="col-1 position-absolute" style="right:65px">
+            <%= button_tag( class: "search_button", style: "border:none" ) do %>
               <i class="fa-solid fa-magnifying-glass-location"></i>
             <% end %>
           </div>
