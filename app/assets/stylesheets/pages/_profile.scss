@@ -27,6 +27,11 @@
   margin: 0px;
   padding: 0px;
 }
+.nav-pills {
+  color: $cultured !important;
+  border-radius: 12px !important;
+
+}
 
 .friends-list-nav {
   border-radius: 24px !important;
@@ -39,6 +44,10 @@
 .vl {
   border-left: 2px solid $cultured;
   border-radius: 10px;
+}
+
+.nav-pills > .active  {
+  background-color: $tan !important;
 }
 
 hr.whitehr {
@@ -110,4 +119,3 @@ hr.whitehr {
     background-color: #d97053;
   }
 }
-
