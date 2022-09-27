@@ -9,8 +9,6 @@ export default class extends Controller {
     markers: Array
   }
 
-  // static target = ["photo"]
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -32,30 +30,30 @@ export default class extends Controller {
     this.markersValue.forEach((marker) => {
 
        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-       new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
+      //  new mapboxgl.Marker()
+      //   .setLngLat([ marker.lng, marker.lat ])
+      //   .setPopup(popup)
+      //   .addTo(this.map)
 
       // VERY IMPORTANT
       //when we decide we want to create avatars to our experiences
 
       // Create a HTML element for your custom marker
 
-      // const customMarker = document.createElement("div")
-      // customMarker.className = "marker"
-      // customMarker.style.backgroundImage = `url('${document.querySelector(".user-photo").src}')`
-      // customMarker.style.backgroundImage = `url('${marker.image_url})`
-      // customMarker.style.backgroundSize = "contain"
-      // customMarker.style.width = "25px"
-      // customMarker.style.height = "25px"
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.background = `url('${marker.avatar_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.borderRadius = "50%"
+      customMarker.style.width = "25px"
+      customMarker.style.height = "25px"
 
   // Pass the element as an argument to the new marker
 
-      // new mapboxgl.Marker(customMarker)
-      //   .setLngLat([marker.lng, marker.lat])
-      //   .setPopup(popup)
-      //   .addTo(this.map)
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(this.map)
     });
   }
   #fitMapToMarkers() {
