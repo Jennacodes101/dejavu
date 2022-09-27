@@ -26,9 +26,9 @@ biking = Experience.find(6)
 biking.photo.attach(io: File.open('app/assets/images/seed_exp/belem.jpeg'), filename: 'belem.jpeg')
 biking.save!
 
-powwow = Experience.find(7)
-powwow.photo.attach(io: File.open('app/assets/images/seed_exp/powwow.jpeg'), filename: 'powwow.jpeg')
-powwow.save!
+gargula = Experience.find(7)
+gargula.photo.attach(io: File.open('app/assets/images/seed_exp/gargula.jpeg'), filename: 'gargula.jpeg')
+gargula.save!
 
 parque = Experience.find(8)
 parque.photo.attach(io: File.open('app/assets/images/seed_exp/parque.jpeg'), filename: 'parque.jpeg')
@@ -36,6 +36,15 @@ parque.save!
 
 sailing = Experience.find(9)
 sailing.photo.attach(io: File.open('app/assets/images/seed_exp/nigel.jpeg'), filename: 'nigel.jpeg')
+
+galgo = Experience.find(10)
+galgo.photo.attach(io: File.open('app/assets/images/seed_exp/galgo.jpeg'), filename: 'galgo.jpeg')
+
+lewagon = Experience.find(11)
+lewagon.photo.attach(io: File.open('app/assets/images/seed_exp/lewagon.jpeg'), filename: 'lewagon.jpeg')
+
+levilla = Experience.find(12)
+levilla.photo.attach(io: File.open('app/assets/images/seed_exp/levilla.jpeg'), filename: 'levilla.jpeg')
 
 puts '--------'
 puts 'experience photo seeding complete✅'

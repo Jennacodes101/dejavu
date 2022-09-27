@@ -13,6 +13,11 @@ joaob = User.find(3)
 joaob.photo.attach(io: File.open('app/assets/images/dejavu_user_photos/Joaob.jpeg'), filename: 'Joaob.jpeg')
 joaob.save!
 puts 'seeding photo for user Joao b. complete✅'
+miguel = User.find(4)
+miguel.photo.attach(io: File.open('app/assets/images/dejavu_user_photos/Miguel.jpeg'), filename: 'Miguel.jpeg')
+miguel.save!
+puts 'seeding photo for user Miguel. complete✅'
+
 puts"-------------"
 puts "seeding photos for users COMPLETE ✅"
 puts "------------"
