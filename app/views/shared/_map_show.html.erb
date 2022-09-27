@@ -1,4 +1,9 @@
 <%# <div class="pb-20"> %>
+<% @markers = @markers.map do |marker| %>
+  <% marker[:avatar_url] = cl_image_path(marker[:image_url]) %>
+  <% marker %>
+<% end %>
+
 <div style="width: 612px; height: 612px; border-radius: 16px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"

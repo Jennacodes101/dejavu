@@ -80,7 +80,8 @@ class ExperiencesController < ApplicationController
         lat: experience.latitude,
         lng: experience.longitude,
         info_window: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
-        image_url: helpers.asset_url("green_marker.png")
+        image_url: experience.user.photo.key
+        # image_url: Cloudinary::Utils.cloudinary_url(experience.user.photo.key)
       }
     end
   end
@@ -92,7 +93,8 @@ class ExperiencesController < ApplicationController
         lat: experience.latitude,
         lng: experience.longitude,
         info_window: render_to_string(partial: "shared/info_window", locals: { experience: experience }),
-        image_url: helpers.asset_url("green_marker.png")
+        # image_url: Cloudinary::Utils.cloudinary_url(experience.user.photo.key)
+        image_url: experience.user.photo.key
       }
     ]
   end
