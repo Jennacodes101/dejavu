@@ -20,8 +20,12 @@
 }
 
 .navbar-logo {
-  height: 48px;
-  display: flex;
+  height: 40px;
+  img {
+    width: 216px;
+    height: 40px;
+    object-fit: contain;
+  }
   justify-content: left;
 }
 

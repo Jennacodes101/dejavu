@@ -1,8 +1,11 @@
 <div class="navbar fixed-top navbar-expand-sm navbar-lewagon <%= yield(:navbar_class) %>">
   <div class="container">
     <div class="navbar-logo col-md-2">
-      <h1> <%= link_to "DEJAVU", root_path, class: "dropdown-item" %> </h1>
+      <div style="height: 48px; width:216 px">
+        <%= link_to image_tag("LogoDejaVU3.png",alt: "LogoDejaVu" ), root_path, class: "dropdown-item" %>
+      </div>
     </div>
+
     <div class="navbar-search d-flex col-md-4">
       <div class="form-search">
         <%= form_tag experiences_path, method: :get do %>
