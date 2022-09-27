@@ -1,5 +1,5 @@
 class MyExperiencesController < ApplicationController
-  before_action :find_experience, except: [:index, :destroy]
+  before_action :find_experience, except: [:index, :destroy, :done]
 
   def index
     @my_experiences = policy_scope(MyExperience)
@@ -24,7 +24,7 @@ class MyExperiencesController < ApplicationController
     @my_experience.experience = @experience
     authorize @my_experience
     if @my_experience.save
-      redirect_to my_experiences_path, notice: 'My_Experience was successfully created.'
+      redirect_to my_experiences_path, notice: 'Wishlist experience was successfully created.'
     else
       render :new
     end
@@ -44,6 +44,16 @@ class MyExperiencesController < ApplicationController
     redirect_to experience_path(@my_experience.experience)
   end
 
+  def done
+    @my_experience = MyExperience.find(params[:id])
+    authorize @my_experience
+    @my_experience.done = true
+    if @my_experience.save!
+      redirect_to profile_path(current_user.id), notice: 'Your wishlist was successfully updated.'
+    else
+      redirect_to profile_path(current_user.id), notice: "Your wishlist failed to update. Please try again later"
+    end
+  end
   private
 
   def my_experience_params

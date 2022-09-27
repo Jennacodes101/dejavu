@@ -19,6 +19,10 @@ class MyExperiencePolicy < ApplicationPolicy
     user == record.user
   end
 
+  def done?
+    true
+  end
+
   def destroy?
     user == record.user
   end
