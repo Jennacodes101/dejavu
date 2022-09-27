@@ -5,15 +5,6 @@
       height: 80, width: 80, crop: :fill, quality: 70,
       radius: :max, format: :png %>
     </div>
-
-
-        <button class="btn btn-info dropdown-toggle m-2" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-          Friends <span class="badge text-bg-dark"><%= "#{@friends.count}" %></span>
-          <span class="position-absolute translate-middle p-2 bg-danger border border-light rounded-circle visually-hidden"
-            id="friends-btn-notifications" style="right: -5% !important; top: 18%" action="">
-            <span class="visually-hidden">New alerts</span>
-          </span>
-
     <div class="row">
       <div class="col-6-lg col-12-sm">
         <div class="d-flex justify-content-center">
@@ -52,13 +43,13 @@
             <div class="dropdown-menu friends-list-nav" aria-labelledby="dropdownMenuClickableInside" style="min-width: 300px;">
               <div class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
                 <div class="nav-item" role="presentation">
-                  <button class="nav-link active px-3" id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab" aria-controls="pills-friends" aria-selected="true">Friends</button>
+                  <button class="nav-link nav-pills active px-3" id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab" aria-controls="pills-friends" aria-selected="true">Friends</button>
                 </div>
                 <div class="vl ms-2 me-2">
 
                 </div>
                 <div class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-requests-tab" data-bs-toggle="pill" data-bs-target="#pills-requests" type="button" role="tab" aria-controls="pills-requests" aria-selected="false">Requests</button>
+                  <button class="nav-link nav-pills" id="pills-requests-tab" data-bs-toggle="pill" data-bs-target="#pills-requests" type="button" role="tab" aria-controls="pills-requests" aria-selected="false">Requests</button>
                 </div>
               </div>
               <hr class="whitehr">
