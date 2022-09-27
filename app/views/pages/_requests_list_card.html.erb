@@ -10,7 +10,7 @@
               <div class="ps-2 pt-1 ">
                 <%= cl_image_tag friend_info.photo.key,
                   height: 50, width: 50, crop: :fill, quality: 70,
-                  radius: :max, format: :png %>
+                  radius: :max, format: :png, :border=>"1px_solid_white"%>
               </div>
             </li>
             <li class="">
@@ -42,7 +42,7 @@
                 <% if friend_info.photo.attached?  %>
                   <%= cl_image_tag friend_info.photo.key,
                     height: 50, width: 50, crop: :fill, quality: 70,
-                    radius: :max, format: :png %>
+                    radius: :max, format: :png, :border=>"1px_solid_white"%>
                 <% else  %>
                   <%= image_tag('user_avatar.png', class: 'friends-list-photo') %>
                 <% end %>

@@ -34,14 +34,14 @@ class PagesController < ApplicationController
     # retrieve array of user experiences
     @user_experiences = Experience.where(user_id: params[:id])
 
-    # retrieve user experuences that i've finished
+    # retrieve user experiences for done list
     @done_user_experiences = MyExperience.where("my_experiences.user_id = #{params[:id]} and my_experiences.done = true")
 
     # retrieve reviews
     @user_reviews = Review.where(user_id: params[:id])
 
     # Active record an array of user my_experiences (wishlist)
-    @user_my_experiences = MyExperience.where(user_id: params[:id])
+    @user_experiences_wishlist = Experience.joins(:my_experiences).where("my_experiences.user_id = 1 and my_experiences.done = false")
     # Active record an array of done user my_experiences
 
     @user_done_experiences = MyExperience.where(user_id: params[:id],

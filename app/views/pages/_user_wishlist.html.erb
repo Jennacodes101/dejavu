@@ -1,14 +1,27 @@
 <div class="pt-3 pb-2 container content border-sunk">
   <div class="d-flex">
-    <h2 class="bg-exp"> My wishlist </h2>
-  </div>
-  <div class="cards">
-  <% @user_my_experiences.each do |my_exp| %>
-    <%= link_to experience_path(my_exp.experience_id), class: "text-decoration-none" do %>
-    <div class="wishlist-card" style="background: #2c2c2c">
-      <%= my_exp.experience.name %>
-    </div>
+    <% if @access == "owner" %>
+      <h2 class="bg-exp mt-2"> My wishlist </h2>
+    <% else %>
+      <h2 class="bg-exp mt-2"><%= "#{@profile_user.first_name}'s wishlist" %></h2>
     <% end %>
-  <% end %>
+  </div>
+  <div class="cards-lg">
+    <% @user_experiences_wishlist.each do |exp| %>
+
+        <div class="wishlist-card" >
+          <div class="card text-bg-light">
+            <%= cl_image_tag exp.photo.key, height: 150, width: 500, crop: :fill,
+              :transformation => {:effect => "blur:500"}, :effect=>"brightness:-50", class: "card-img"%>
+            <div class="card-img-overlay">
+              <h5> <%=link_to "#{exp.name}", experience_path(exp.id), class: "wishlist-card-title my-3" %> </h5>
+              <% if @access == 'owner' %>
+                <% my_exp = MyExperience.find_by(user_id: current_user.id, experience_id: exp.id) %>
+                <%= link_to "done", done_path(my_exp.id),  class: "btn btn-sm btn-outline-secondary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    <% end %>
   </div>
 </div>
