@@ -29,13 +29,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #217afa;
+  color: black;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #F4F4F4;
+  background: transparent;
   text-decoration: none;
-  border-color: #A17254;
+  border-color: $jet;
 }
 
 .btn-create-experience {
