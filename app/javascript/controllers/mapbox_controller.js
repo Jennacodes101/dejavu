@@ -9,6 +9,8 @@ export default class extends Controller {
     markers: Array
   }
 
+  // static target = ["photo"]
+
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -42,7 +44,8 @@ export default class extends Controller {
 
       // const customMarker = document.createElement("div")
       // customMarker.className = "marker"
-      // customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      // customMarker.style.backgroundImage = `url('${document.querySelector(".user-photo").src}')`
+      // customMarker.style.backgroundImage = `url('${marker.image_url})`
       // customMarker.style.backgroundSize = "contain"
       // customMarker.style.width = "25px"
       // customMarker.style.height = "25px"

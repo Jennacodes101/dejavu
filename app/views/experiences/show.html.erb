@@ -1,8 +1,10 @@
 <!-- For open graph meta tags -->
 <% content_for :meta_title, "#{@experience.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @experience.description %>
-<% content_for :meta_image, cl_image_path(@experience.photo.path) %>
+<% content_for :meta_image, cl_image_path(@experience.photo.key) %>
 <!--  -->
+
+<%# <%= cl_image_tag @experience.user.photo.key, class: "d-none user-photo" %>
 
 <div class="screen">
   <div class="container" style="height: 100%">
