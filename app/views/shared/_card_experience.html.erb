@@ -14,8 +14,14 @@
         </label>
       </div> %>
     </div>
-    <div class="card-experience-user avatar-bordered">
-      <%= cl_image_tag experience.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %>
-    </div>
+
+      <div class="card-experience-user avatar-bordered">
+        <%= cl_image_tag experience.user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %>
+      </div>
+      <%=  link_to  profile_path(id: experience.user.id) do %>
+        <div class="card-experience-overlay"> </div>
+      <% end %>
+
+
   </div>
 </div>
