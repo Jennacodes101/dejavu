@@ -47,10 +47,11 @@
   }
 }
 
-.nav-link {
+.nav-link-dejavu {
   color: $jet;
   font-weight: 500;
 }
-.nav-link:hover {
-  color: $brown;
+.nav-link-dejavu:hover {
+  color: $jet;
+  font-weight: 550;
 }

@@ -1,7 +1,11 @@
-<div class="text-center border-lifted py-3">
-  <div>
-    <div class="d-flex justify-content-end profile-stats-list">
-      <div class="dropdown">
+<div style="">
+  <div class="text-center border-lifted mt-4 p-4">
+    <div class="" >
+      <%= cl_image_tag @current_user.photo.key,
+      height: 80, width: 80, crop: :fill, quality: 70,
+      radius: :max, format: :png %>
+    </div>
+
 
         <button class="btn btn-info dropdown-toggle m-2" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
           Friends <span class="badge text-bg-dark"><%= "#{@friends.count}" %></span>
@@ -9,60 +13,71 @@
             id="friends-btn-notifications" style="right: -5% !important; top: 18%" action="">
             <span class="visually-hidden">New alerts</span>
           </span>
-        </button>
 
-          <div class="dropdown-menu friends-list-nav" aria-labelledby="dropdownMenuClickableInside" style="min-width: 300px;">
-            <div class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-              <div class="nav-item" role="presentation">
-                <button class="nav-link active px-3" id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab" aria-controls="pills-friends" aria-selected="true">Friends</button>
-              </div>
-              <div class="vl ms-2 me-2">
-
-              </div>
-              <div class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-requests-tab" data-bs-toggle="pill" data-bs-target="#pills-requests" type="button" role="tab" aria-controls="pills-requests" aria-selected="false">Requests</button>
-              </div>
-            </div>
-            <hr class="whitehr">
-
-            <div class="tab-content" id="pills-tabContent">
-
-              <div class="tab-pane fade show active" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
-                <%= render 'friends_list_card' %>
-              </div>
-
-              <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
-                <%= render 'requests_list_card' %>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="" >
-      <%= cl_image_tag @current_user.photo.key,
-        height: 100, width: 100, crop: :fill, quality: 70,
-        radius: :max, format: :png%>
-    </div>
-    <div class="row">
+     <div class="row">
       <div class="col-6-lg col-12-sm">
         <div class="d-flex justify-content-center">
-          <h2 class="py-3 pe-1"> <%="#{current_user.first_name} #{current_user.last_name}"%> | </h2>
-          <h4 class="py-3 ps-1 align-self-center"> <%= current_user.username %> </h4>
+          <h4 class="pt-2 pe-1" style="color: grey"> <%="#{current_user.first_name} #{current_user.last_name}"%> </h4>
+          <h5 class="pt-2 ps-1 align-self-center"> @<%= current_user.username %> </h5>
+        </div>
+        <div>
+          <button class="card-expand-btn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample" data-controller="profile">
+          +
         </div>
       </div>
     </div>
-    <button class="card-expand-btn" type="button" data-bs-toggle="collapse"
-      data-bs-target="#collapseExample" aria-expanded="false"
-      aria-controls="collapseExample" data-controller="profile">
-    ...
-  </button>
-  <div class="collapse" id="collapseExample">
-  <div class="p-2 text-center">
-    <p class ="my-3"> <%= current_user.bio %> </p>
-    <p class="mb-3"> <%= "Email: #{current_user.email}" %></p>
-    <p class="mb-3"> <%= " #{current_user.city}" %></p>
-    <p class="mb-3"> <%= "Birthday: #{current_user.birthday}" %></p>
-    <%= link_to "Edit", edit_user_registration_path(@current_user),
-      class: "btn btn-primary"%>
+
+    </button>
+
+    <div class="collapse" id="collapseExample">
+      <div class="p-2 text-center">
+        <p class ="my-3"> <%= current_user.bio %> </p>
+        <p class="mb-3"> <%= "Email: #{current_user.email}" %></p>
+        <p class="mb-3"> <%= " #{current_user.city}" %></p>
+        <p class="mb-3"> <%= "Birthday: #{current_user.birthday}" %></p>
+        <%= link_to "...", edit_user_registration_path(@current_user),
+          class: ""%>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12">
+      <ul class="profile-stats-list" >
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+              <%= "#{@friends.count} friends" %>
+            </button>
+            <div class="dropdown-menu friends-list-nav" aria-labelledby="dropdownMenuClickableInside" style="min-width: 300px;">
+              <div class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                <div class="nav-item" role="presentation">
+                  <button class="nav-link active px-3" id="pills-friends-tab" data-bs-toggle="pill" data-bs-target="#pills-friends" type="button" role="tab" aria-controls="pills-friends" aria-selected="true">Friends</button>
+                </div>
+                <div class="vl ms-2 me-2">
+
+                </div>
+                <div class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-requests-tab" data-bs-toggle="pill" data-bs-target="#pills-requests" type="button" role="tab" aria-controls="pills-requests" aria-selected="false">Requests</button>
+                </div>
+              </div>
+              <hr class="whitehr">
+
+              <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
+                  <%= render 'friends_list_card' %>
+                </div>
+
+                <div class="tab-pane fade" id="pills-requests" role="tabpanel" aria-labelledby="pills-requests-tab">
+                  <%= render 'requests_list_card' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li> <%=link_to "#{@user_experiences.count} experiences", "#", class: "btn"%> </li>
+      </ul>
+    </div>
   </div>
 </div>
