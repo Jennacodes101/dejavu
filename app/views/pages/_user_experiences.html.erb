@@ -2,7 +2,11 @@
   <div class="row my-1">
     <div class="container-fluid py-1">
       <div class="d-flex">
-        <h2 class="bg-exp"> 's experiences </h2>
+        <% if @access == 'owner'%>
+          <h2 class="bg-exp"> Experiences you've created</h2>
+        <% else %>
+          <h2 class="bg-exp"><%= "#{@profile_user.first_name}'s experiences" %></h2>
+        <% end %>
       </div>
       <div class="d-flex flex-row flex-nowrap overflow-auto">
         <% @user_experiences.each do |experience| %>
@@ -10,7 +14,7 @@
             <div class="card card-experience">
               <%= cl_image_tag experience.photo.key, height: 302, width: 280,  crop: :fill, fetch_format: :png %>
               <div class="card-experience-infos">
-                <div>
+                <div >
                   <h1><%= link_to experience.name, experience_path(experience.id) %></h1>
                   <h2><%= experience.city %>, <%= experience.country %></h2>
                   <h3> #<%= experience.exp_type %></h3>

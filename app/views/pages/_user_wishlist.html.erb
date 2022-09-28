@@ -13,11 +13,11 @@
           <div class="card text-bg-light">
             <%= cl_image_tag exp.photo.key, height: 150, width: 500, crop: :fill,
               :transformation => {:effect => "blur:500"}, :effect=>"brightness:-50", class: "card-img"%>
-            <div class="card-img-overlay">
-              <h5> <%=link_to "#{exp.name}", experience_path(exp.id), class: "wishlist-card-title my-3" %> </h5>
+            <div class="card-img-overlay text-center">
+              <h5 class="my-3"> <%=link_to "#{exp.name}", experience_path(exp.id), class: "wishlist-card-title" %> </h5>
               <% if @access == 'owner' %>
                 <% my_exp = MyExperience.find_by(user_id: current_user.id, experience_id: exp.id) %>
-                <%= link_to "done", done_path(my_exp.id),  class: "btn btn-sm btn-outline-secondary" %>
+                  <div class="done-btn"> <%= link_to "done", done_path(my_exp.id),  class: "btn btn-sm btn-outline-light"%></div>
               <% end %>
             </div>
           </div>
