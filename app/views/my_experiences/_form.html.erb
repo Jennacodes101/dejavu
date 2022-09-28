@@ -1,5 +1,5 @@
 <%= simple_form_for [@experience, @my_experience] do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :done %>
-  <%= f.submit "Add to list", class: 'btn btn-primary' %>
+  <%= f.submit "Add to list", class: 'rounded-pill btn btn-dark shadow-sm' %>
 <% end %>
