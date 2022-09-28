@@ -15,14 +15,17 @@
 
 .btn-join {
   font-size: 16px;
-  border: 1px solid;
   padding: 4px 24px;
   margin-right: 8px;
-  border-radius: 4px;
+  border-radius: 16px;
+  background-color: $jet;
+  color: $cultured;
+  box-shadow: 0px 1px 1px rgba(20,20,20,0.2);
 }
 
 .btn-login {
   font-size: 16px;
+  font-weight: 500;
 }
 
 .search_button {
@@ -38,7 +41,40 @@
   border-color: $jet;
 }
 
-.btn-create-experience {
-  padding-top: 20px;
-  padding-left: 220px;
+// ----------Review Button---------- //
+
+.btn-review {
+  font-size: 16px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  border-color: $jet;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 1px;
+  color: $jet;
+  // box-shadow: 0px 1px 1px rgba(20,20,20,0.2);
+}
+
+.btn-review:hover {
+  color: $jet;
+  background-color: $jet;
+  color: $cultured;
+}
+
+// ----------Explore Button---------- //
+
+.btn-explore {
+
+}
+
+.btn-explore:hover {
+  border-color: $jet;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 1px;
+  color: $jet;
+
+  a{
+    color: $jet;
+  }
 }

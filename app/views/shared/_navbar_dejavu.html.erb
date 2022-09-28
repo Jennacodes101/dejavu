@@ -10,13 +10,13 @@
       <div class="form-search">
         <%= form_tag experiences_path, method: :get do %>
         <div class="row position-relative">
-          <div class="col-11">
+          <div class="col-12">
             <%= text_field_tag :query,
               params[:query],
               class: "form-control border-secondary rounded-pill pr-5",
               placeholder: "Find an Experience" %>
           </div>
-          <div class="col-1 position-absolute" style="right:65px">
+          <div class="position-absolute" style="left:165px">
             <%= button_tag( class: "search_button", style: "border:none" ) do %>
               <i class="fa-solid fa-magnifying-glass-location"></i>
             <% end %>
@@ -25,23 +25,36 @@
         <% end %>
       </div>
     </div>
+
     <div class="collapse navbar-collapse col-md-6" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Explore",experiences_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown active">
+          <div class="m-2 nav-item">
+            <div class="btn-explore">
+                <%= link_to experiences_path do %>
+                  <div class="d-flex flex-row p-1">
+                    <div style="height:20px; width:20px; margin-right: 4px">
+                      <%= image_tag("map-regular.svg",alt: "ExploreButton") %>
+                    </div>
+                    <div class="pl-2">
+                      <span> Explore</span>
+                    </div>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+
+          <li class="nav-item dropdown">
             <div class="dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, height: 48, width: 48, radius: "max",  crop: :fill, fetch_format: :png %>
+                <%= cl_image_tag current_user.photo.key, height: 44, width: 44, radius: "max",  crop: :fill, fetch_format: :png %>
               <% else %>
-                <%= image_tag("user_avatar.png", class: "avatar")  %>
+                <%= image_tag("user_avatar.png", class: "avatar") %>
               <% end %>
             </div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%# <%= link_to "Feed", feed_path, class: "dropdown-item" %>
-              <%= link_to "Explore", experiences_path, class: "dropdown-item" %>
+              <%# <%= link_to "Explore", experiences_path, class: "dropdown-item" %>
               <%= link_to "Profile", profile_path(current_user.id), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
