@@ -1,24 +1,25 @@
-<table class="table table-dark">
-  <thead>
-    <th> name </th>
-    <th> location </th>
-    <th> reviewed? </th>
-  </thead>
-  <tbody>
-    <% @done_user_experiences.each do |my_experience| %>
-    <tr>
-      <%experience = Experience.find(my_experience.experience_id) %>
-      <td> <%= experience.name %> </td>
-      <td> <%= experience.address %> </td>
-      <td>
-      <% review = Review.find_by(my_experience_id: my_experience.id)  %>
-        <% unless review.nil? %>
-          <p> reviewed✓ </p>
-        <% else  %>
-          <%= link_to "review", experience_path(experience.id), class: "btn btn-secondary" %>
-        <% end  %>
-      </td>
-    </tr>
-    <% end  %>
-  </tbody>
-</table>
+<div class="container"></div>
+  <table class="table table-dark">
+    <thead>
+      <th> name </th>
+      <th> location </th>
+      <th> reviewed? </th>
+    </thead>
+    <tbody>
+      <% @done_user_experiences.each do |my_experience| %>
+        <tr>
+          <%experience = Experience.find(my_experience.experience_id) %>
+          <td> <%= experience.name %> </td>
+          <td> <%= experience.address %> </td>
+          <% review = Review.find_by(my_experience_id: my_experience.id)  %>
+            <% if review.nil? %>
+              <td> <%=link_to "review", experience_path(experience.id),
+                class: "btn btn-secondary" %></td>
+            <% else  %>
+              <td> reviewed✓ </td>
+          <% end %>
+        </tr>
+      <% end  %>
+    </tbody>
+  </table>
+</div>
