@@ -45,8 +45,8 @@ export default class extends Controller {
       customMarker.style.background = `url('${marker.avatar_url}')`
       customMarker.style.backgroundSize = "contain"
       customMarker.style.borderRadius = "50%"
-      customMarker.style.width = "25px"
-      customMarker.style.height = "25px"
+      customMarker.style.width = "40px"
+      customMarker.style.height = "40px"
 
   // Pass the element as an argument to the new marker
 
