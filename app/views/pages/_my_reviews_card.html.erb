@@ -4,7 +4,38 @@
     <% else %>
       <h2 class="bg-exp mt-2"><%= "#{@profile_user.first_name}'s reviews" %></h2>
     <% end %>
-  <div class="cards">
+    <div class="cards">
+      <% @user_reviews.each do |review| %>
+        <% exp = Experience.joins(:my_experiences).where('my_experiences.id' =>  params[:id]) %>
 
+        <div class="review_profile_card m-2">
+          <h5 class="m-2" ><%= exp.first.name %></h5>
+          <div class="review p-2 m-2">
+            <div class="d-flex flex-row">
+              <% if @access = 'owner' %>
+                <div class="row align-self-center"> <%= cl_image_tag current_user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
+              <% else %>
+                <div class="row align-self-center"> <%= cl_image_tag @profile_user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
+              <% end %>
+              <div class="p-2 row">
+                <% if @access = 'owner' %>
+                  <p> @<%= current_user.username %> </p>
+                  <p style="color: grey"> <%= current_user.city %> </p>
+                <% else %>
+                  <p> @<%= @profile_user.username %> </p>
+                  <p style="color: grey"> <%= @profile_user.city %> </p>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <p> <%= review.rating %> ⭐️ </p>
+              <p> "<%= review.content %>" </p>
+              <div class="details pt-4 pb-2">
+                <p> <%= review.created_at %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
