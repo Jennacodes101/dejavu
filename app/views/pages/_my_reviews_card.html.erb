@@ -1,5 +1,10 @@
-<div class="container content border-sunk">
+<div class="container content ">
+  <% if @access == "owner" %>
+      <h2 class="bg-exp mt-2"> My reviews </h2>
+    <% else %>
+      <h2 class="bg-exp mt-2"><%= "#{@profile_user.first_name}'s reviews" %></h2>
+    <% end %>
   <div class="cards">
-    
+
   </div>
 </div>
