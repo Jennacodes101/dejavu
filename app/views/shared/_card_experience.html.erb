@@ -1,5 +1,9 @@
 <div class="card card-experience">
-  <%= cl_image_tag experience.photo.key, height: 302, width: 280,  crop: :fill, fetch_format: :png %>
+  <% if experience.photo.attached? %>
+    <%= cl_image_tag experience.photo.key, height: 302, width: 280,  crop: :fill, fetch_format: :png %>
+  <% else %>
+    <%= image_tag("placeholder_exp", width: 280, height: 302) %>
+  <% end %>
   <div class="card-experience-infos">
     <div>
       <h1><%= link_to experience.name, experience_path(experience.id) %></h1>
