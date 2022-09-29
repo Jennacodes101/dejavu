@@ -13,7 +13,7 @@
           <div class="card text-bg-light">
             <% if exp.photo.attached? %>
               <div class="card-img-pl">
-                <%= cl_image_tag exp.photo.key, crop: :fill,
+                <%= cl_image_tag exp.photo.key, crop: :fill, width: 500,
                   :transformation => {:effect => "blur:500"}, :effect=>"brightness:-50", class: "card-img "%>
               </div>
             <% else %>
@@ -25,7 +25,7 @@
               <h5 class="my-3"> <%=link_to "#{exp.name}", experience_path(exp.id), class: "wishlist-card-title" %> </h5>
               <% if @access == 'owner' %>
                 <% my_exp = MyExperience.find_by(user_id: current_user.id, experience_id: exp.id) %>
-                  <div class="done-btn"> <%= link_to "done", done_path(exp.id),  class: "btn btn-sm btn-outline-light"%></div>
+                  <div class="done-btn"> <%= link_to "done", done_path(my_exp.id),  class: "btn btn-sm btn-outline-light"%></div>
               <% end %>
             </div>
           </div>
