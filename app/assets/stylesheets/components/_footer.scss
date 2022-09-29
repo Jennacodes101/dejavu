@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   // align-items: center;
-  // justify-content: space-between;
+  justify-content: space-between;
   height: 64px;
   border-top-style: solid;
   border-color: $jet;
@@ -30,18 +30,17 @@
   opacity: 1;
 }
 .footer-copyright {
-  text-align: center;
+  text-align: right;
   color: $jet;
 }
 
 //for the homepage
 .footer-home {
-  width: 100%;
   background-color: transparent;
   border:none;
 
   .footer-copyright {
-    text-align: center;
+    text-align: right;
     color: white;
   }
 
