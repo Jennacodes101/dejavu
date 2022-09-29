@@ -40,8 +40,10 @@ class PagesController < ApplicationController
     # retrieve reviews
     @user_reviews = Review.joins(:my_experience, :user).where('user.id' => params[:id])
 
-    # Active record an array of user my_experiences (wishlist)
+    # Active record an array of user my_experiences (wishlist)   
+
     @user_experiences_wishlist = Experience.joins(:my_experiences).where("my_experiences.user_id = #{params[:id]} and my_experiences.done = false")
+
     # Active record an array of done user my_experiences
 
     @user_done_experiences = MyExperience.where(user_id: params[:id],
