@@ -13,20 +13,50 @@
   color: white;
 }
 
+// ----------Join Button---------- //
+
 .btn-join {
+  height: 34px;
+  width: 80px;
   font-size: 16px;
-  padding: 4px 24px;
+  padding: 7px 24px;
   margin-right: 8px;
-  border-radius: 16px;
-  background-color: $jet;
+  border-radius: 18px;
+  background-color: black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
   color: $cultured;
   box-shadow: 0px 1px 1px rgba(20,20,20,0.2);
 }
 
+.btn-join:hover {
+  background-color: transparent;
+  color: black;
+}
+
+// ----------Login Button---------- //
+
 .btn-login {
+  height: 34px;
+  width: 80px;
   font-size: 16px;
+  padding: 7px 20px;
+  margin-right: 8px;
+  color: black;
   font-weight: 500;
 }
+
+.btn-login:hover {
+  color: black;
+  text-decoration: none;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 18px;
+}
+
+// ----------Search Button---------- //
 
 .search_button {
   display: flex;
@@ -39,6 +69,27 @@
   background: transparent;
   text-decoration: none;
   border-color: $jet;
+}
+
+// ----------Wishlist Button---------- //
+
+.btn-wishlist {
+  font-size: 16px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  border-color: $jet;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 1px;
+  color: $jet;
+  // box-shadow: 0px 1px 1px rgba(20,20,20,0.2);
+}
+
+.btn-wishlist:hover {
+  color: $jet;
+  background-color: $jet;
+  color: $cultured;
 }
 
 // ----------Review Button---------- //
@@ -63,18 +114,16 @@
 
 // ----------Explore Button---------- //
 
-// .btn-explore {
-
-// }
+.btn-explore {
+ color: black;
+}
 
 .btn-explore:hover {
-  border-color: $jet;
+  border-color: black;
   border-radius: 16px;
   border-style: solid;
   border-width: 1px;
-  color: $jet;
-
   a{
-    color: $jet;
+    color: black;
   }
 }
