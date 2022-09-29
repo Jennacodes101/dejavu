@@ -1,27 +1,21 @@
 <div class="screen">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 pt-4 pb-3">
-        <%= link_to '+ Experience', new_experience_path, class:"btn btn-outline-dark border-1 rounded-pill shadow-sm" %>
-      </div>
+  <div class="container pt-4">
+    <div class="col-12 p-4 create-exp">
+      <%= link_to '+ Experience', new_experience_path, class:"btn btn-outline-dark border-1 rounded-pill shadow-sm" %>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-6 overflow-auto p-0" style="height: 612px; border-radius: 16px">
-            <div class="cards"> <%# grid of cards %>
-              <% @experiences.each do |experience|%>
-                <%= render 'shared/card_experience', experience: experience %>
-              <% end %>
-            </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 p-3">
+          <div class="cards "> <%# grid of cards %>
+            <% @experiences.each do |experience|%>
+              <%= render 'shared/card_experience', experience: experience %>
+            <% end %>
           </div>
-          <div class="col-6">
-            <div id="map">
-              <%= render 'shared/map' %>
-            </div>
+        </div>
+        <div class="col-6 p-3">
+          <div id="map">
+            <%= render 'shared/map' %>
           </div>
         </div>
       </div>

@@ -14,18 +14,28 @@
   box-shadow: none;
 }
 
-// .mapboxgl-canvas{
-//   width:612px;
-//   height:624px;
-//   border-radius: 16px;
-// }
+.mapboxgl-canvas{
+  width: 636px;
+  height: 500px;
+  border-radius: 16px;
+}
 
 .map-show {
-  // width: 300px;
-  // height: 300px;
+  width: 300px;
+  height: 300px;
   border-radius: 16px;
 }
 
 #map{
-  // top:68px;
+  height: 100vh;
+  top:68px;
+  position: sticky;
+}
+
+.create-exp {
+  position: fixed;
+  top:68px;
+  height:78px;
+  z-index:1;
+  background-color: #F4F4F4;
 }
