@@ -1,7 +1,8 @@
 .vstcard {
-  background-color: $tan;
+  background-color: white;
   color: $jet;
-  border-radius: 8px;
+  border-radius: 16px;
+  box-shadow: 0px 1px 1px rgba(20,20,20,0.08);
 }
 .card-expand-btn{
   height: 28px;
