@@ -31,11 +31,11 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 pt-2">
                     <div class="d-flex flex-row-reverse">
                       <div class="experience-buttons">
                         <% unless !@my_experience.nil? %>
-                          <%= link_to '+ Wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn btn-success" %>
+                          <%= link_to '+ Wishlist', create_alt_experience_path(@experience.id), method: :post, class:"btn-wishlist" %>
                         <% end %>
                       </div>
                     </div>
