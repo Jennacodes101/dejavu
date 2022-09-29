@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-6 p-3">
-          <div class="cards "> <%# grid of cards %>
+          <div class="cards index-cards"> <%# grid of cards %>
             <% @experiences.each do |experience|%>
               <%= render 'shared/card_experience', experience: experience %>
             <% end %>
