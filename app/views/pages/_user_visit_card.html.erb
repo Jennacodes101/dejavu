@@ -30,7 +30,7 @@
             <% if pending_invite.id == current_user.id %>
               <%= link_to "Accept Friend Request",
                 invitation_path(ids: {id1: current_user.id, id2: @profile_user.id}),
-                class: "btn btn-success"%>
+                class: "btn btn-success", method: :patch%>
             <% else %>
               <%= link_to 'Pending Request', "#", class: "rounded-pill btn btn-secondary disabled" %>
             <% end %>
