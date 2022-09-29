@@ -13,3 +13,13 @@
   align-items: center;
   flex-direction: column;
 }
+
+.banner-letters {
+  height: 32px;
+  img {
+    width: 120px;
+    height: 32px;
+    object-fit: contain;
+  }
+  justify-content: left;
+}

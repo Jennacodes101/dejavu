@@ -13,7 +13,7 @@
           <div class="col-12">
             <%= text_field_tag :query,
               params[:query],
-              class: "form-control border-secondary rounded-pill pr-5",
+              class: "form-control border-dark bg-transparent text-dark rounded-pill pr-5",
               placeholder: "Find an Experience" %>
           </div>
           <div class="position-absolute" style="left:165px">
@@ -61,10 +61,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-login" %>
+            <%= link_to "Login", new_user_session_path, class: "btn-login" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Join", new_user_registration_path, class: "btn btn-join" %>
+            <%= link_to "Join", new_user_registration_path, class: "btn-join" %>
           </li>
         <% end %>
       </ul>
