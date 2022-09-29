@@ -13,8 +13,8 @@
           <%= render 'user_dashboard' %>
         </div>
       <% else  %>
-        <div class="row">
-          <h3> <%= "Welcome to #{@profile_user.first_name}'s account" %></h3>
+        <div class="row pt-2 text-muted">
+          <h6> <%= "#{@profile_user.first_name}'s profile" %></h6>
         </div>
         <div class="row">
           <div class="col-3-lg col-3-md col-12-sm">
