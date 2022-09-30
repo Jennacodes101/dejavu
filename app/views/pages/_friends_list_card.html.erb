@@ -20,10 +20,9 @@
         <li>
           <div class=" mt-2 ms-2 align-self-center text-end">
             <%= link_to "Remove", invitation_path(ids: {id1: current_user.id,
-              id2: friend.id}), method: :destroy, data: { confirm: "Are you
+              id2: friend.id}), data: { confirm: "Are you
                 sure you want to remove #{friend.first_name} #{friend.last_name}
-              as a friend ?"},
-              class: "btn-friends-cancel-full"%>
+              as a friend ?"}, method: :delete, class: "btn-friends-cancel-full"%>
           </div>
         </li>
       </ul>
