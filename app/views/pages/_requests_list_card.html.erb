@@ -57,7 +57,7 @@
               id2: invite.user_id}), method: :patch, class: "btn-friends-accept "%>
 
               <%= link_to "Reject", invitation_path(ids: {id1: current_user.id,
-              id2: invite.user_id}), method: :destroy, data: { confirm: "
+              id2: invite.user_id}), method: :delete , data: { confirm: "
               Are you sure you want to cancel your friend request to #{friend_info.first_name}
               #{friend_info.last_name} ?"},
               class: "btn-friends-cancel "%>
