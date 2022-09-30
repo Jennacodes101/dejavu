@@ -3,9 +3,9 @@
     <div class="container-fluid py-1">
       <div class="d-flex">
         <% if @access == 'owner'%>
-          <h2 class="bg-exp"> Experiences you've created</h2>
+          <h5 class="pt-1 text-muted bg-exp"> Your experiences: </h5>
         <% else %>
-          <h2 class="bg-exp"><%= "#{@profile_user.first_name}'s experiences" %></h2>
+          <h5 class="pt-1 text-muted bg-exp"><%= "#{@profile_user.first_name}'s experiences" %></h5>
         <% end %>
       </div>
       <div class="d-flex flex-row flex-nowrap overflow-auto">

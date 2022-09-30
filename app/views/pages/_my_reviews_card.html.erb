@@ -1,13 +1,12 @@
-<div class="container content ">
+<div class="container content">
   <% if @access == "owner" %>
-      <h2 class="bg-exp mt-2"> My reviews </h2>
+      <h5 class="pt-1 text-muted bg-exp"> Your reviews: </h5>
     <% else %>
-      <h2 class="bg-exp mt-2"><%= "#{@profile_user.first_name}'s reviews" %></h2>
+      <h5 class="pt-1 text-muted bg-exp"><%= "#{@profile_user.first_name}'s reviews" %></h5>
     <% end %>
     <div class="cards">
       <% @user_reviews.each do |review| %>
         <% exp = Experience.joins(:my_experiences, :reviews ).where('reviews.id' =>  review.id) %>
-
         <div class="review_profile_card m-2">
           <h5 class="m-2" ><%= exp.first.name %></h5>
           <div class="review p-2 m-2">

@@ -1,56 +1,87 @@
-<div class="text-center p-4 vstcard">
-  <div>
-    <div class="pt-3 pb-2">
+ <div class="text-center p-4 vstcard">
+  <div class="d-flex flex-column justify-content-center align-self-center">
+
+    <div class="row">
       <div class="vstuser-photo">
         <%= cl_image_tag @profile_user.photo.key,
           height: 80, width: 80, crop: :fill, quality: 100,
           radius: :max, format: :png%>
       </div>
+    </div>
 
+    <div class="row">
       <div class="col-6-lg col-12-sm">
         <div class="d-flex justify-content-center align-self-center">
           <h4 class="pt-2 pe-1" style="color: grey"> <%= @profile_user.first_name %> </h4>
           <h5 class="pt-2 ps-1 align-self-center"> @<%= @profile_user.username %> </h5>
         </div>
-      </div>
-
-      <div class="invitebtn">
-        <!--if user does not have a pending request or a accepted request -->
-        <% if !Invitation.reacted?(current_user.id, @profile_user.id) %>
-            <%= link_to 'Add Friend',
-              invitations_path(ids: {id1: current_user.id, id2: @profile_user.id}),
-              class: "btn btn-primary", method: :post
-            %>
-          <!-- if user friendship is confirmed -->
-          <% elsif Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
-            <%= link_to 'Friends✔', "#", class: "btn btn-success" %>
-          <!-- User friendship is pending -->
-          <% else %>
-            <% pending_invite = Invitation.find_invitation(current_user.id, @profile_user.id) %>
-            <% if pending_invite.id == current_user.id %>
-              <%= link_to "Accept Friend Request",
-                invitation_path(ids: {id1: current_user.id, id2: @profile_user.id}),
-                class: "btn btn-success", method: :patch%>
-            <% else %>
-              <%= link_to 'Pending Request', "#", class: "rounded-pill btn btn-secondary disabled" %>
-            <% end %>
-          <% end %>
-      </div>
-      <div class="py-3">
-        <% @profile_user.bio %>
+          <h6 class="ps-1" style="color: grey"> <%= @profile_user.city %> </h6>
+        <div>
+          <button class="card-expand-btn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseExample" aria-expanded="false"
+            aria-controls="collapseExample" data-controller="profile">
+          +
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="vstr-card-footer">
-    <% if Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
-      <%= link_to 'Remove as friend', invitation_path(ids: {id1: current_user.id,
-        id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
-        class: "btn btn-danger" %>
-    <% elsif Invitation.pending_record?(current_user.id, @profile_user.id) %>
-      <%= link_to 'Cancel Request', invitation_path(ids: {id1: current_user.id,
-        id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
-        class: "rounded-pill btn btn-danger" %>
-    <% end %>
+    </button>
+
+      <div class="collapse" id="collapseExample">
+        <div class="p-2 text-center">
+          <p class ="my-3"> <%= @profile_user.bio %> </p>
+          <p class="mb-3"> Email: <%= @profile_user.email %> </p>
+          <p class="mb-3"> <%= @profile_user.city %> </p>
+          <p class="mb-3"> Birthday: <%= @profile_user.birthday %> </p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <div class="p-2">
+          <!--if user does not have a pending request or a accepted request -->
+          <% if !Invitation.reacted?(current_user.id, @profile_user.id) %>
+              <div class="">
+                <%= link_to 'Add Friend',
+                  invitations_path(ids: {id1: current_user.id, id2: @profile_user.id}),
+                  class: "rounded-pill btn btn-primary btn-sm", method: :post
+                %>
+              </div>
+            <!-- if user friendship is confirmed -->
+            <% elsif Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
+              <div class="">
+                <%= link_to 'Friends✔', "#", class: "rounded-pill btn btn-success btn-sm" %>
+              </div>
+            <!-- User friendship is pending -->
+            <% else %>
+              <div class="">
+                <% pending_invite = Invitation.find_invitation(current_user.id, @profile_user.id) %>
+              </div>
+              <% if pending_invite.id == current_user.id %>
+                <div class="">
+                  <%= link_to "Accept Friend Request",
+                    invitation_path(ids: {id1: current_user.id, id2: @profile_user.id}),
+                    class: "btn btn-success", method: :patch %>
+                </div>
+              <% else %>
+                <div class="">
+                  <%= link_to 'Pending Request', "#", class: "rounded-pill btn btn-outline-secondary disabled btn-sm" %>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
+
+        <div class="p-2 vstr-card-footer">
+          <% if Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
+            <%= link_to 'Remove as friend', invitation_path(ids: {id1: current_user.id,
+              id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
+              class: "btn btn-outline-danger btn-sm" %>
+          <% elsif Invitation.pending_record?(current_user.id, @profile_user.id) %>
+            <%= link_to 'Cancel Request', invitation_path(ids: {id1: current_user.id,
+              id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
+              class: "rounded-pill btn btn-outline-danger btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

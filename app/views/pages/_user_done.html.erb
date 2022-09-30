@@ -1,9 +1,9 @@
 <div class="container"></div>
-  <table class="table table-dark">
+  <table class="table">
     <thead>
-      <th> name </th>
-      <th> location </th>
-      <th> reviewed? </th>
+      <th> Experience </th>
+      <th> Location </th>
+      <th> Reviewed? </th>
     </thead>
     <tbody>
       <% @done_user_experiences.each do |my_experience| %>
@@ -13,10 +13,10 @@
           <td> <%= experience.address %> </td>
           <% review = Review.find_by(my_experience_id: my_experience.id)  %>
             <% if review.nil? %>
-              <td> <%=link_to "review", experience_path(experience.id),
-                class: "btn btn-secondary" %></td>
+              <td> <%=link_to "+ Review", experience_path(experience.id),
+                class: "rounded-pill btn btn-dark" %></td>
             <% else  %>
-              <td> reviewed✓ </td>
+              <td> ✓ </td>
           <% end %>
         </tr>
       <% end  %>
