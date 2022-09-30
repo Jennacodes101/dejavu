@@ -13,11 +13,15 @@
           <td> <%= experience.address %> </td>
           <% review = Review.find_by(my_experience_id: my_experience.id)  %>
             <% if review.nil? %>
-              <td> <%=link_to "+ Review", experience_path(experience.id),
-                class: "rounded-pill btn btn-dark" %></td>
+              <% if @access == 'owner' %>
+                <td> <%=link_to "+ Review", experience_path(experience.id),
+                  class: "rounded-pill btn btn-dark" %></td>
+              <% else %>
+                <td> Not yet! </td>
+              <% end %>
             <% else  %>
               <td> ✓ </td>
-          <% end %>
+            <% end %>
         </tr>
       <% end  %>
     </tbody>
