@@ -11,8 +11,14 @@ name_seed = [
   'Parque Eduardo VII',
   'Sailing with Nigel',
   'Parte Chão by Galgo',
-  'Le wagon - Lisboa',
-  'Le Villa'
+  'Le Wagon - Lisboa',
+  'Le Villa',
+  'Osteria Cucina di Amici',
+  'Surf na Costa da Caparica',
+  'Bar TR3S Lisboa',
+  'Garden of the Calouste Gulbenkian Foundation',
+  'stephen',
+  'diego'
 ]
 
 description_seed = [
@@ -32,15 +38,25 @@ description_seed = [
   'Great afternoon sailing! We went for the 2pm tour and even though the air temp was 36 degrees it was cool down on
   the water. Nigel and David were a great laugh and made sure the drink and food was flowing � …',
   'Phenomenal band of music',
-  'Learn Software Engineering and Data Science on campus or online - Join a community of career changers,
-  tech creators, entrepreneurs who changed their lives with us.',
+  'To Learn Software Engineering and Data Science on campus or online, this is the best Bootcamp by far - Has a great community, great teachers
+  and the best students out there.',
   'Its a perfect place to spend quality time with friends and family.
   It got such a relaxed and calm atmosphere, which is due to both the design of
-  the restaurant and the park where its located'
+  the restaurant and the park where its located',
+  'Divine traditional Italian restaurant. Delicious food in which good and fresh ingredients are used.
+  Very welcoming atmosphere and friendly staff',
+  'Surf academy in Costa da Caparica with the best lady coaches that i ever seen',
+  'Always happy to visit one of my favorite bar!
+  Friendly owners. Friendly staff. Nice crowd, always a good and relaxed atmosphere.
+  They are also doing their best to create events like Lisbon Bear Pride.',
+  'Tranquil urban gardens with walking paths, lakes, diverse birds and a cafe in a picturesque setting',
+  'stephen',
+  'diego'
 ]
 
 type_seed = ['food','service','market','food','museum', 'activity',
-  'cafe', 'park','excursion', 'nighlife', 'classes', 'food']
+  'cafe', 'park','excursion', 'nighlife', 'classes', 'food', 'food', 'activity',
+  'nighlife', 'park', 'stephen', 'diego']
 
 address_seed = [
   'Calle De Embajadores, 28045 Madrid, Espanha',
@@ -54,17 +70,23 @@ address_seed = [
   'Doca de Santo Amaro, 1350-353 Lisboa, Portugal',
   'Largo Do Intendente Pina Manique, 1100-285 Lisboa, Distrito de Lisboa, Portugal',
   'Rua Do Conde De Redondo, 1150-102 Lisboa, Distrito de Lisboa, Portugal',
-  'Campo Dos Mártires Da Pátria, 1150-225 Lisboa, Distrito de Lisboa, Portugal'
+  'Campo Dos Mártires Da Pátria, 1150-225 Lisboa, Distrito de Lisboa, Portugal',
+  'Rua Das Madres, 1200-712 Lisboa, Distrito de Lisboa, Portugal',
+  'Costa da Caparica, Distrito de Setúbal, Portugal',
+  'Rua Ruben A. Leitão, 1200-392 Lisboa, Distrito de Lisboa, Portugal',
+  'Avenida De Berna, 1050-038 Lisboa, Distrito de Lisboa, Portugal',
+  'stephen',
+  'diego'
 ]
 
-price_seed = [7,5.00, 0,15.50,20, 0, 10,0, 140.50, 15, 6000, 20]
+price_seed = [7,5.00, 0,15.50,20, 0, 10,0, 140.50, 15, 6000, 20, 20, 60, 0]
 
-userid_seed = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4 ]
+userid_seed = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6, 7, 8, 9, 10]
 
 contact_seed = [
   '686633229','603666211','', '+351213421232',
-  '+351218917000','','+351217524315', '','+351912024749', '' , '', ''
-  ]
+  '+351218917000','','+351217524315', '','+351912024749', '' , '', '', '',
+   '', '', '', '', '']
 
 url_seed= [
   'https://taquerialatentacion.com/',
@@ -78,21 +100,31 @@ url_seed= [
   'http://www.sailingwithnigel.com/',
   'https://galgogalgogalgo.bandcamp.com/album/parte-ch-o',
   'https://www.lewagon.com/lisbon',
-  'http://www.cm-lisboa.pt/'
+  'http://www.cm-lisboa.pt/',
+  'http://www.osteria.pt/',
+  'http://www.caparicasurfacademy.com/',
+  'https://www.tr3slisboa.com/',
+  'http://gulbenkian.pt/jardim/',
+  'stephen',
+  'diego'
   ]
 
   city_seed = [
     'Madrid', 'Madrid', 'Madrid',
     'Lisboa', 'Lisboa', 'Lisboa',
     'Lisboa', 'Lisboa', 'Lisboa',
-    'Lisboa', 'Lisboa', 'Lisboa'
+    'Lisboa', 'Lisboa', 'Lisboa',
+    'Lisboa', 'Lisboa', 'Lisboa',
+    'Lisboa', 'Madrid', 'Madrid'
   ]
 
   country_seed = [
     'Spain', 'Spain', 'Spain',
     'Portugal', 'Portugal', 'Portugal',
     'Portugal', 'Portugal', 'Portugal',
-    'Portugal', 'Portugal', 'Portugal'
+    'Portugal', 'Portugal', 'Portugal',
+    'Portugal', 'Portugal', 'Portugal',
+    'Portugal', 'Spain', 'Spain'
   ]
 
 

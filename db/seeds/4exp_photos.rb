@@ -46,6 +46,18 @@ lewagon.photo.attach(io: File.open('app/assets/images/seed_exp/lewagon.jpeg'), f
 levilla = Experience.find(12)
 levilla.photo.attach(io: File.open('app/assets/images/seed_exp/levilla.jpeg'), filename: 'levilla.jpeg')
 
+osteria = Experience.find(13)
+osteria.photo.attach(io: File.open('app/assets/images/seed_exp/osteria.jpeg'), filename: 'osteria.jpeg')
+
+surf = Experience.find(14)
+surf.photo.attach(io: File.open('app/assets/images/seed_exp/surf.jpeg'), filename: 'surf.jpeg')
+
+bar = Experience.find(15)
+bar.photo.attach(io: File.open('app/assets/images/seed_exp/bar.jpeg'), filename: 'bar.jpeg')
+
+gulbenkian = Experience.find(16)
+gulbenkian.photo.attach(io: File.open('app/assets/images/seed_exp/gulbenkian.jpeg'), filename: 'gulbenkian.jpeg')
+
 puts '--------'
 puts 'experience photo seeding complete✅'
 puts'----------'
