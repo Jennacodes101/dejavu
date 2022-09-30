@@ -16,8 +16,8 @@ name_seed = [
   'Osteria Cucina di Amici',
   'Surf na Costa da Caparica',
   'Bar TR3S Lisboa',
-  'Garden of the Calouste Gulbenkian Foundation',
-  'stephen',
+  'Garden of Gulbenkian',
+  'Burmet',
   'diego'
 ]
 
@@ -50,18 +50,18 @@ description_seed = [
   Friendly owners. Friendly staff. Nice crowd, always a good and relaxed atmosphere.
   They are also doing their best to create events like Lisbon Bear Pride.',
   'Tranquil urban gardens with walking paths, lakes, diverse birds and a cafe in a picturesque setting',
-  'stephen',
+  'Casual restaurant doling out ribs, hearty rolls & artisan burgers in a simply furnished dining area',
   'diego'
 ]
 
 type_seed = ['food','service','market','food','museum', 'activity',
   'cafe', 'park','excursion', 'nighlife', 'classes', 'food', 'food', 'activity',
-  'nighlife', 'park', 'stephen', 'diego']
+  'nighlife', 'park', 'food', 'diego']
 
 address_seed = [
   'Calle De Embajadores, 28045 Madrid, Espanha',
   'C. de Calatrava, 7, 28005 Madrid',
-  '40.41086295424183, -3.7072753793356163',
+  'Calle Ribera De Curtidores, 28005 Madrid',
   'R. da Palmeira 23, 1200-311 Lisboa, Portugal',
   'Esplanada Dom Carlos I, 1990-170 Lisboa, Portugal',
   'Belem, lisboa, portugal',
@@ -75,11 +75,11 @@ address_seed = [
   'Costa da Caparica, Distrito de Setúbal, Portugal',
   'Rua Ruben A. Leitão, 1200-392 Lisboa, Distrito de Lisboa, Portugal',
   'Avenida De Berna, 1050-038 Lisboa, Distrito de Lisboa, Portugal',
-  'stephen',
+  'Paseo De Los Olmos, 28005 Madrid',
   'diego'
 ]
 
-price_seed = [7,5.00, 0,15.50,20, 0, 10,0, 140.50, 15, 6000, 20, 20, 60, 0]
+price_seed = [7,5.00, 0,15.50,20, 0, 10,0, 140.50, 15, 6000, 20, 20, 60, 0, 60]
 
 userid_seed = [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 6, 7, 8, 9, 10]
 
@@ -105,7 +105,7 @@ url_seed= [
   'http://www.caparicasurfacademy.com/',
   'https://www.tr3slisboa.com/',
   'http://gulbenkian.pt/jardim/',
-  'stephen',
+  'https://www.facebook.com/burmet/',
   'diego'
   ]
 
