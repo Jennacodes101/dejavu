@@ -49,7 +49,7 @@
             <!-- if user friendship is confirmed -->
             <% elsif Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
               <div class="">
-                <%= link_to 'Friends✔', "#", class: "rounded-pill btn btn-success btn-sm" %>
+                <%= link_to 'Friends ✔', "#", class: "rounded-pill btn btn-outline-success btn-sm" %>
               </div>
             <!-- User friendship is pending -->
             <% else %>
@@ -74,7 +74,7 @@
           <% if Invitation.confirmed_record?(current_user.id, @profile_user.id)%>
             <%= link_to 'Remove as friend', invitation_path(ids: {id1: current_user.id,
               id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
-              class: "btn btn-outline-danger btn-sm" %>
+              class: "rounded-pill btn btn-outline-danger btn-sm" %>
           <% elsif Invitation.pending_record?(current_user.id, @profile_user.id) %>
             <%= link_to 'Cancel Request', invitation_path(ids: {id1: current_user.id,
               id2: @profile_user.id}), method: :delete, data: { confirm: 'Are you sure?' },
