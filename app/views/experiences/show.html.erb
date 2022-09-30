@@ -1,12 +1,14 @@
 <!-- For open graph meta tags -->
 <% content_for :meta_title, "#{@experience.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @experience.description %>
-<% content_for :meta_image, cl_image_path(@experience.photo.key) %>
+<% if @experience.photo.attached? %>
+  <% content_for :meta_image, cl_image_path(@experience.photo.key) %>
+<% end %>
 <!--  -->
 
 <div class="screen">
   <div class="container">
-    <div class="row pt-4">
+    <div class="row pt-4 show-container">
       <div class="p-4 info info-border">
         <div class="container">
           <div class="row">
@@ -44,7 +46,11 @@
 
                 <div class="row">
                   <div class="image">
-                    <%= cl_image_tag @experience.photo.key, crop: :fill, width: 400, height: 300, quality: 70, radius: 20, format: :png %>
+                    <% if @experience.photo.attached? %>
+                      <%= cl_image_tag @experience.photo.key, crop: :fill, width: 400, height: 300, quality: 70, radius: 20, format: :png %>
+                    <% else  %>
+                      <%= image_tag("placeholder_exp", width: 400, height: 300) %>
+                    <% end %>
                   </div>
                 </div>
 
