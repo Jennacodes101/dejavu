@@ -18,7 +18,8 @@
                   <h5 class="my-3"> <%=link_to "#{exp.name}", experience_path(exp.id), class: "wishlist-card-title" %> </h5>
                   <% if @access == 'owner' %>
                     <% my_exp = MyExperience.find_by(user_id: current_user.id, experience_id: exp.id) %>
-                      <div class="done-btn"> <%= link_to "done", done_path(exp.id),  class: "rounded-pill btn btn-sm btn-outline-light"%></div>
+                      <div class="done-btn"> <%= link_to "done", done_path(my_exp.id),  class: "rounded-pill btn btn-sm btn-outline-light"%></div>
+                      <% %>
                   <% end %>
                 </div>
               </div>
