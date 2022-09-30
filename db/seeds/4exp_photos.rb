@@ -58,6 +58,12 @@ bar.photo.attach(io: File.open('app/assets/images/seed_exp/bar.jpeg'), filename:
 gulbenkian = Experience.find(16)
 gulbenkian.photo.attach(io: File.open('app/assets/images/seed_exp/gulbenkian.jpeg'), filename: 'gulbenkian.jpeg')
 
+burmet = Experience.find(17)
+burmet.photo.attach(io: File.open('app/assets/images/seed_exp/burmet.jpeg'), filename: 'burmet.jpeg')
+
+# diego = Experience.find(18)
+# diego.photo.attach(io: File.open('app/assets/images/seed_exp/diego.jpeg'), filename: 'diego.jpeg')
+
 puts '--------'
 puts 'experience photo seeding complete✅'
 puts'----------'
