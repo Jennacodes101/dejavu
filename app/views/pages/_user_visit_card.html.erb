@@ -1,4 +1,4 @@
- <div class="text-center p-4 vstcard">
+\ <div class="text-center p-4 vstcard">
   <div class="d-flex flex-column justify-content-center align-self-center">
 
     <div class="row">
@@ -60,7 +60,7 @@
                 <div class="">
                   <%= link_to "Accept Friend Request",
                     invitation_path(ids: {id1: current_user.id, id2: @profile_user.id}),
-                    class: "btn btn-success", method: :patch %>
+                    class: "rounded-pill btn btn-outline-success btn-sm", method: :patch %>
                 </div>
               <% else %>
                 <div class="">
