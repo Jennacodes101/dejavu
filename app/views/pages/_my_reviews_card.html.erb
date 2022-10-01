@@ -11,14 +11,14 @@
           <h5 class="m-2" ><%= exp.first.name %></h5>
           <div class="review p-2 m-2">
             <div class="d-flex flex-row">
-              <% if @access = 'owner' %>
+              <% if @access == 'owner' %>
                 <div class="row align-self-center"> <%= cl_image_tag current_user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
               <% else %>
                 <div class="row align-self-center"> <%= cl_image_tag @profile_user.photo.key, height: 40, width: 40, radius: "max",  crop: :fill, fetch_format: :png %> </div>
               <% end %>
               <div class="p-2 row">
-                <% if @access = 'owner' %>
-                  <p> @<%= current_user.username %> </p>
+                <% if  @access == 'owner' %>
+                  <p> @<%= @current_user.username %> </p>
                   <p style="color: grey"> <%= current_user.city %> </p>
                 <% else %>
                   <p> @<%= @profile_user.username %> </p>

@@ -79,7 +79,7 @@
                   <div class="container">
                     <div class="row">
                       <% @experience.reviews.each do |review| %>
-                        <%= render 'shared/card_review_experience' %>
+                        <%= render 'shared/card_review_experience', review: review %>
                       <% end %>
                     </div>
                   </div>
