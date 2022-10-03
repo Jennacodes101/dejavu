@@ -1,9 +1,15 @@
 <div style="">
   <div class="text-center border-lifted mt-4 p-4">
     <div class="" >
-      <%= cl_image_tag @current_user.photo.key,
-      height: 80, width: 80, crop: :fill, quality: 70,
-      radius: :max, format: :png %>
+      <% if current_user.photo.key == nil %>
+        <%= image_tag("user_avatar",
+        height: 80, width: 80, crop: :fill, quality: 70,
+        radius: :max, format: :png) %>
+      <% else %>
+        <%= cl_image_tag @current_user.photo.key,
+        height: 80, width: 80, crop: :fill, quality: 70,
+        radius: :max, format: :png %>
+      <% end %>
     </div>
     <div class="row">
       <div class="col-6-lg col-12-sm">
