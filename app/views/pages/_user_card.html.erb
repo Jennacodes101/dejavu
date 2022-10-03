@@ -1,7 +1,7 @@
 <div style="">
   <div class="text-center border-lifted mt-4 p-4">
     <div class="" >
-      <% if @current_user.photo.key == nil %>
+      <% if current_user.photo.key == nil %>
         <%= image_tag("user_avatar",
         height: 80, width: 80, crop: :fill, quality: 70,
         radius: :max, format: :png) %>
